@@ -37,3 +37,11 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
   }
 
 }
+
+.status-uptime-99-or-above {
+  background-color: green;
+}
+
+.status-uptime-below-99 {
+  background-color: red;
+}

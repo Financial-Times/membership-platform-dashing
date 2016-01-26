@@ -1,5 +1,12 @@
 require 'net/http'
 require 'json'
+require 'rest-client'
+require 'cgi'
+require 'json'
+
+apiKey = ENV['PINGDOM_API_KEY'] || ''
+user = ENV['PINGDOM_USER'] || ''
+password = ENV['PINGDOM_PASSWORD'] || ''
 
 def performCheckAndSendEventToWidgets(widgetId, urlHostName, urlPath, tlsEnabled)
 
@@ -13,13 +20,34 @@ def performCheckAndSendEventToWidgets(widgetId, urlHostName, urlPath, tlsEnabled
   response = http.request(Net::HTTP::Get.new(urlPath))
 
   if response.code == '200'
-    print 'bla'
     send_event(widgetId, { value: 'ok', status: 'available' })
   else
-    print 'bla bla'
     send_event(widgetId, { value: 'danger', status: 'unavailable' })
   end
 
 end
 
-performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/admin/healthcheck', true)
+def getUptimeMetricsFromPingdom(checkId, apiKey, user, password)
+
+  # Get the unix timestamps
+  timeInSecond = 7 * 24 * 60 * 60
+  lastTime = (Time.now.to_i - timeInSecond )
+
+  urlUptime = "https://#{CGI::escape user}:#{CGI::escape password}@api.pingdom.com/api/2.0/summary.average/#{checkId}?from=#{lastTime}&includeuptime=true"
+  responseUptime = RestClient.get(urlUptime, {"App-Key" => apiKey, "Account-Email" => "ftpingdom@ft.com"})
+  responseUptime = JSON.parse(responseUptime.body, :symbolize_names => true)
+
+  totalUp = responseUptime[:summary][:status][:totalup]
+  totalDown = responseUptime[:summary][:status][:totaldown]
+  uptime = (100 * (totalUp.to_f / (totalDown.to_f + totalUp.to_f))).round(2)
+
+  send_event(checkId, { current: uptime, status: 'uptime-99-or-above' })
+
+end
+
+SCHEDULER.every '10s', first_in: 0 do |job|
+
+  performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/admin/healthcheck', true)
+  getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
+end
+
