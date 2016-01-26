@@ -25,6 +25,7 @@ endpoint that exposes results of critical monitoring tests.
 
 * Green = available
 * Red = unavailable
+* Grey = status unknown
 
 Clicking on the current status widget takes you to the source of the metric data. Example: https://login-api-at-eu-prod.herokuapp.com/tests/critical
 
