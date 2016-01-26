@@ -41,7 +41,13 @@ def getUptimeMetricsFromPingdom(checkId, apiKey, user, password)
   totalDown = responseUptime[:summary][:status][:totaldown]
   uptime = (100 * (totalUp.to_f / (totalDown.to_f + totalUp.to_f))).round(2)
 
-  send_event(checkId, { current: uptime, status: 'uptime-99-or-above' })
+  if uptime >= 99.90
+    send_event(checkId, { current: uptime, status: 'uptime-999-or-above' })
+  else
+    send_event(checkId, { current: uptime, status: 'uptime-below-999' })
+  end
+
+
 
 end
 
@@ -49,5 +55,6 @@ SCHEDULER.every '10s', first_in: 0 do |job|
 
   performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/admin/healthcheck', true)
   getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
+
 end
 

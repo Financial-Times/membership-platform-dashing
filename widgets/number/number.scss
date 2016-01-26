@@ -33,15 +33,15 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
   }
 
   .updated-at {
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.7);
   }
 
 }
 
-.status-uptime-99-or-above {
+.status-uptime-999-or-above {
   background-color: green;
 }
 
-.status-uptime-below-99 {
-  background-color: red;
+.status-uptime-below-999 {
+  background-color: orange;
 }
