@@ -53,7 +53,7 @@ end
 
 SCHEDULER.every '10s', first_in: 0 do |job|
 
-  performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/admin/healthcheck', true)
+  performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/tests/critical', true)
   getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
 
 end
