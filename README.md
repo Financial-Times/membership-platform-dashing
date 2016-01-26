@@ -43,6 +43,11 @@ Example: http://stats.pingdom.com/56q7ie6hfq8y/1965634
 
 ## Developer guide
 
+### Tech stack
+* [Dashing](https://github.com/Shopify/dashing)
+* [Pingdom](https://www.pingdom.com/)
+* [Atam4j](https://github.com/atam4j/atam4j)
+
 ### Where is the app hosted?
 
 Heroku - [https://dashboard.heroku.com/apps/membership-platform-dashing/resources](https://dashboard.heroku.com/apps/membership-platform-dashing/resources)
