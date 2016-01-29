@@ -3,25 +3,43 @@
 <div class="gridster">
   <ul>
 
+    <!-- login -->
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://login-api-at-eu-prod.herokuapp.com/tests/critical', '_blank');">
       <div data-id="login" data-view="Availability" data-title="Identity Management" data-text="Log in users to ft.com" data-moreinfo="https://login-api-at-eu-prod.herokuapp.com/tests/critical"></div>
     </li>
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1965634', '_blank');">
-
-      <div data-id="1965634" data-view="Number" data-title="Log in users to ft.com" data-moreinfo="Last 7 days" data-suffix="%"></div>
+      <div data-id="1965634" data-view="Number" data-title="Log in users to ft.com" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="undefined" data-view="Availability" data-title="Identity Management" data-text="Change user credentials"></div>
+    <!-- change-credentials -->
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/change-credentials-critical', '_blank');">
+      <div data-id="change-credentials" data-view="Availability" data-title="Identity Management" data-text="Change user credentials"></div>
     </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="undefined" data-view="Availability" data-title="Identity Management" data-text="Retrieve forgotten passwords"></div>
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1974827', '_blank');">
+      <div data-id="1974827" data-view="Number" data-title="Change user credentials" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
     </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+
+    <!-- reset-password -->
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/reset-password-critical', '_blank');">
+      <div data-id="reset-password" data-view="Availability" data-title="Identity Management" data-text="Retrieve forgotten passwords"></div>
+    </li>
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1974865', '_blank');">
+      <div data-id="1974865" data-view="Number" data-title="Retrieve forgotten passwords" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
+    </li>
+
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
       <div data-id="undefined" data-view="Availability" data-title="Identity Management" data-text="Validate user sessions"></div>
     </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1970201', '_blank');">
+      <div data-id="undefined" data-view="Number" data-title="Retrieve forgotten passwords" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
+    </li>
+
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
       <div data-id="undefined" data-view="Availability" data-title="Access Management" data-text="Authorise content access requests"></div>
     </li>
+    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1970201', '_blank');">
+      <div data-id="undefined" data-view="Number" data-title="Retrieve forgotten passwords" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
+    </li>
+
   </ul>
 </div>

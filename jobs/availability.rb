@@ -54,7 +54,11 @@ end
 SCHEDULER.every '10s', first_in: 0 do |job|
 
   performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/tests/critical', true)
+  performCheckAndSendEventToWidgets('change-credentials', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/change-credentials-critical', false)
+  performCheckAndSendEventToWidgets('reset-password', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/reset-password-critical', false)
   getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
+  getUptimeMetricsFromPingdom('1974827', apiKey, user, password)
+  getUptimeMetricsFromPingdom('1974865', apiKey, user, password)
 
 end
 
