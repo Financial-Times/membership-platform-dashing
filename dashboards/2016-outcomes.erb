@@ -34,6 +34,32 @@
           <h4>Measuring Availability of our Core Platform Capabilities</h4>
           <div id="number-of-iam-capabilities-with-availability-measured" style="width: 600px; height: 300px;"></div>
         </div>
+
+        <div class="col-md-4">
+          <h4>B2B - Increase Engaged Users</h4>
+          <div id="b2b-increase-engaged-users" style="width: 600px; height: 300px;"></div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>B2B - Increase NPS</h4>
+          <div id="b2b-increase-nps" style="width: 600px; height: 300px;"></div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Improve Retention - RFV of Subscribers</h4>
+          TBD
+        </div>
+
+        <div class="col-md-4">
+          <h4>Improve Productivity - % of Cases Conducted via Self-Serve</h4>
+          <div id="percentage-of-cases-conducted-via-self-serve" style="width: 600px; height: 300px;"></div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Improve Profitability - Setup Volumes / Incremental Revenue</h4>
+          <div id="setup-volumes-incremental-revenue" style="width: 600px; height: 300px;"></div>
+        </div>
+
       </div>
 
     </div>
@@ -135,6 +161,108 @@
         };
         var chart4 = new google.visualization.Gauge(document.getElementById('number-of-iam-capabilities-with-availability-measured'));
         chart4.draw(data4, options4);
+
+        <!-- rfv-of-subscribers -->
+//        var data5 = google.visualization.arrayToDataTable([
+//          ['Label', 'Value'],
+//          ['', 3]
+//        ]);
+//
+//        var options5 = {
+//          width: 600,
+//          height: 300,
+//          min: 0,
+//          max: 120,
+//          redFrom: 0,
+//          redTo: 7,
+//          yellowFrom:7,
+//          yellowTo: 15,
+//          greenFrom: 15,
+//          greenTo: 20,
+//          minorTicks: 8
+//        };
+//        var chart5 = new google.visualization.Gauge(document.getElementById('rfv-of-subscribers'));
+//        chart5.draw(data5, options5);
+
+        <!-- percentage-of-cases-conducted-via-self-serve -->
+        var data6 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 0]
+        ]);
+
+        var options6 = {
+          width: 600,
+          height: 300,
+          min: 0,
+          max: 100,
+          yellowFrom:0,
+          yellowTo: 50,
+          greenFrom: 50,
+          greenTo: 100,
+          minorTicks: 10
+        };
+        var chart6 = new google.visualization.Gauge(document.getElementById('percentage-of-cases-conducted-via-self-serve'));
+        chart6.draw(data6, options6);
+
+        <!-- setup-volumes-incremental-revenue -->
+        var data7 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 0]
+        ]);
+
+        var options7 = {
+          width: 600,
+          height: 300,
+          min: 0,
+          max: 2500,
+          yellowFrom:0,
+          yellowTo: 2100,
+          greenFrom: 2100,
+          greenTo: 2500,
+          minorTicks: 10
+        };
+        var chart7 = new google.visualization.Gauge(document.getElementById('setup-volumes-incremental-revenue'));
+        chart7.draw(data7, options7);
+
+        <!-- b2b-increase-engaged-users -->
+        var data8 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 0]
+        ]);
+
+        var options8 = {
+          width: 600,
+          height: 300,
+          min: 0,
+          max: 8000,
+          yellowFrom:0,
+          yellowTo: 6000,
+          greenFrom: 6000,
+          greenTo: 8000,
+          minorTicks: 10
+        };
+        var chart8 = new google.visualization.Gauge(document.getElementById('b2b-increase-engaged-users'));
+        chart8.draw(data8, options8);
+
+        <!-- b2b-increase-nps -->
+        var data9 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 0]
+        ]);
+
+        var options9 = {
+          width: 600,
+          height: 300,
+          min: 0,
+          max: 70,
+          yellowFrom:0,
+          yellowTo: 45,
+          greenFrom: 45,
+          greenTo: 70,
+          minorTicks: 7
+        };
+        var chart9 = new google.visualization.Gauge(document.getElementById('b2b-increase-nps'));
+        chart9.draw(data9, options9);
 
       }
     </script>
