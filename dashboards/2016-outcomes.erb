@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <title>
+      Membership Programme Outcomes - 2016
+    </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <h2 align="center">Membership Programme Outcomes Dashboard - 2016</h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Number of IAM Platform API Clients</h4>
+          <div id="number-of-iam-platform-api-clients" style="width: 600px; height: 300px;"></div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Number of Commerce Platform API Clients</h4>
+          <div id="number-of-commerce-platform-api-clients" style="width: 600px; height: 300px;"></div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Number of Systems on UCS/Solaris</h4>
+          <div id="number-of-systems-on-ucs-solaris" style="width: 600px; height: 300px;"></div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Measuring Availability of our Core Platform Capabilities</h4>
+          <div id="number-of-iam-capabilities-with-availability-measured" style="width: 600px; height: 300px;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Google charts JS -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        <!-- number-of-iam-platform-api-clients -->
+        var data1 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 14]
+        ]);
+
+        var options1 = {
+          width: 600,
+          height: 300,
+          min: 0,
+          max: 25,
+          redFrom: 0,
+          redTo: 14,
+          yellowFrom:14,
+          yellowTo: 17,
+          greenFrom: 17,
+          greenTo: 25,
+          minorTicks: 5
+        };
+        var chart1 = new google.visualization.Gauge(document.getElementById('number-of-iam-platform-api-clients'));
+        chart1.draw(data1, options1);
+
+        <!-- number-of-commerce-platform-api-clients -->
+        var data2 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 1]
+        ]);
+
+        var options2 = {
+          width: 600,
+          height: 300,
+          min: 0,
+          max: 8,
+          redFrom: 0,
+          redTo: 1,
+          yellowFrom:1,
+          yellowTo: 4,
+          greenFrom: 4,
+          greenTo: 8,
+          minorTicks: 8
+        };
+        var chart2 = new google.visualization.Gauge(document.getElementById('number-of-commerce-platform-api-clients'));
+        chart2.draw(data2, options2);
+
+        <!-- number-of-systems-on-ucs-solaris -->
+        var data3 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 47]
+        ]);
+
+        var options3 = {
+          width: 600,
+          height: 300,
+          min: 47,
+          max: 0,
+          redFrom: 47,
+          redTo: 42,
+          yellowFrom:42,
+          yellowTo: 37,
+          greenFrom: 37,
+          greenTo: 0,
+          minorTicks: 8
+        };
+        var chart3 = new google.visualization.Gauge(document.getElementById('number-of-systems-on-ucs-solaris'));
+        chart3.draw(data3, options3);
+
+        <!-- number-of-iam-capabilities-with-availability-measured -->
+        var data4 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['', 3]
+        ]);
+
+        var options4 = {
+          width: 600,
+          height: 300,
+          min: 0,
+          max: 20,
+          redFrom: 0,
+          redTo: 7,
+          yellowFrom:7,
+          yellowTo: 15,
+          greenFrom: 15,
+          greenTo: 20,
+          minorTicks: 8
+        };
+        var chart4 = new google.visualization.Gauge(document.getElementById('number-of-iam-capabilities-with-availability-measured'));
+        chart4.draw(data4, options4);
+
+      }
+    </script>
+
+
+
+
+
+  </body>
+</html>
