@@ -78,7 +78,7 @@
 
       function drawChart() {
 
-        $.getJSON("/2016-outcomes-data.json", function(json) {
+        $.getJSON("https://raw.githubusercontent.com/Financial-Times/membership-platform-dashing/master/public/2016-outcomes-data.json", function(json) {
           console.log(json.numberOfIamPlatformApiClients.max);
 
           // numberOfIamPlatformApiClients
