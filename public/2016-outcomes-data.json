@@ -1,0 +1,19 @@
+{
+  "numberOfIamPlatformApiClients": {
+    "min": 0,
+    "max": 25,
+    "current": 14
+  },
+
+  "numberOfCommercePlatformApiClients": {
+    "min": 0,
+    "max": 8,
+    "current": 1
+  },
+
+  "numberOfSystemsOnUcsSolaris" : {
+    "min": 47,
+    "max": 0,
+    "current": 47
+  }
+}
