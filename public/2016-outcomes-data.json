@@ -21,5 +21,29 @@
     "min": 0,
     "max": 20,
     "current": 3
+  },
+
+  "percentageOfCasesConductedViaSelfServe" : {
+    "min": 0,
+    "max": 100,
+    "current": 0
+  },
+
+  "setupVolumesIncrementalRevenue" : {
+    "min": 0,
+    "max": 2500,
+    "current": 0
+  },
+
+  "b2bIncreaseEngagedUsers" : {
+    "min": 0,
+    "max": 8000,
+    "current": 0
+  },
+
+  "b2bIncreaseNps" : {
+    "min": 0,
+    "max": 70,
+    "current": 0
   }
 }
