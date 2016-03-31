@@ -15,5 +15,11 @@
     "min": 47,
     "max": 0,
     "current": 47
+  },
+
+  "numberOfIamCapabilitiesWithAvailabilityMeasured" : {
+    "min": 0,
+    "max": 20,
+    "current": 3
   }
 }
