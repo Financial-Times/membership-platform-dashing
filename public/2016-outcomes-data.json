@@ -44,6 +44,6 @@
   "b2bIncreaseNps" : {
     "min": 0,
     "max": 70,
-    "current": 10
+    "current": 0
   }
 }
