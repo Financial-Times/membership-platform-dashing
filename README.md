@@ -59,13 +59,17 @@ To change the data shown by the dashboard, simply update the appropriate values 
 * [Pingdom](https://www.pingdom.com/)
 * [Atam4j](https://github.com/atam4j/atam4j)
 
-### Running locally.
+### Releasing new versions
+All changes pushed to the master branch are automatically released.
+
+### Running locally
 * Make sure you have bundler installed `sudo gem install bundler`
-* Run the app. ```bundle install
-export PINGDOM_USER=<PINGDOM_USER>
-export PINGDOM_PASSWORD=<PINGDOM_PASSWORD>
-export PINGDOM_API_KEY=<PINGDOM_API_KEY>
-bundle exec thin start -R config.ru```
+* Run the app. 
+  bundle install
+  export PINGDOM_USER=<PINGDOM_USER>
+  export PINGDOM_PASSWORD=<PINGDOM_PASSWORD>
+  export PINGDOM_API_KEY=<PINGDOM_API_KEY>
+  bundle exec thin start -R config.ru
 
 ### Where is the app hosted?
 
