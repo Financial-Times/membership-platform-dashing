@@ -27,18 +27,20 @@
       <div data-id="1974865" data-view="Number" data-title="Retrieve forgotten passwords" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
     </li>
 
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+   	<!-- validate-session -->
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com/tests/critical-validate', '_blank');">
       <div data-id="undefined" data-view="Availability" data-title="Identity Management" data-text="Validate user sessions"></div>
     </li>
-    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1970201', '_blank');">
-      <div data-id="undefined" data-view="Number" data-title="Retrieve forgotten passwords" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/2142836', '_blank');">
+      <div data-id="undefined" data-view="Number" data-title="Validate user sessions" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
     </li>
 
-    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
-      <div data-id="undefined" data-view="Availability" data-title="Access Management" data-text="Authorise content access requests"></div>
+	<!-- revoke-session -->
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com/tests/critical-revoke', '_blank');">
+      <div data-id="undefined" data-view="Availability" data-title="Identity Management" data-text="Revoke user sessions"></div>
     </li>
-    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1970201', '_blank');">
-      <div data-id="undefined" data-view="Number" data-title="Retrieve forgotten passwords" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
+    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/2142839', '_blank');">
+      <div data-id="undefined" data-view="Number" data-title="Revoke user sessions" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
     </li>
 
   </ul>
