@@ -57,10 +57,12 @@ SCHEDULER.every '10s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('change-credentials', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/change-credentials-critical', false)
   performCheckAndSendEventToWidgets('reset-password', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/reset-password-critical', false)
   performCheckAndSendEventToWidgets('validate-session', 'ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com', '/tests/critical-validate', false)
+  performCheckAndSendEventToWidgets('get-user-products', 'usr-product-svc-lb-eu-west-1-prod.memb.ft.com', '/tests/get-products-critical', false)
   getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
   getUptimeMetricsFromPingdom('1974827', apiKey, user, password)
   getUptimeMetricsFromPingdom('1974865', apiKey, user, password)
   getUptimeMetricsFromPingdom('2142836', apiKey, user, password)
+  getUptimeMetricsFromPingdom('2147820', apiKey, user, password)
 
 end
 
