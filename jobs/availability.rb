@@ -73,6 +73,8 @@ def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, criticalThreshol
 
     responseFromSubsequentRequest = RestClient.get(linkToFollow, {"X-Api-Key" => apiKey})
 
+    print responseFromSubsequentRequest
+
     if responseFromSubsequentRequest.code == 200
 
       jsonResponse = JSON.parse(responseFromSubsequentRequest.body, :symbolize_names => true)
@@ -112,7 +114,8 @@ SCHEDULER.every '60s', first_in: 0 do |job|
   getUptimeMetricsFromPingdom('2142836', apiKey, user, password)
   getUptimeMetricsFromPingdom('2147820', apiKey, user, password)
 
-  getResponseTimeMetricsFromLogentries('session-api-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, 300)
+  getResponseTimeMetricsFromLogentries('validate-session-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, 300)
+  getResponseTimeMetricsFromLogentries('get-user-products-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fproducts.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, 300)
 
 end
 
