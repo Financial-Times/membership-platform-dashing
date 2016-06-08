@@ -5,6 +5,7 @@ require 'cgi'
 require 'json'
 
 apiKey = ENV['PINGDOM_API_KEY'] || ''
+logentriesApiKey = ENV['LOGENTRIES_API_KEY'] || ''
 user = ENV['PINGDOM_USER'] || ''
 password = ENV['PINGDOM_PASSWORD'] || ''
 
@@ -31,7 +32,7 @@ def getUptimeMetricsFromPingdom(checkId, apiKey, user, password)
 
   # Get the unix timestamps
   timeInSecond = 7 * 24 * 60 * 60
-  lastTime = (Time.now.to_i - timeInSecond )
+  lastTime = (Time.now.to_i - timeInSecond)
 
   urlUptime = "https://#{CGI::escape user}:#{CGI::escape password}@api.pingdom.com/api/2.0/summary.average/#{checkId}?from=#{lastTime}&includeuptime=true"
   responseUptime = RestClient.get(urlUptime, {"App-Key" => apiKey, "Account-Email" => "ftpingdom@ft.com"})
@@ -47,11 +48,58 @@ def getUptimeMetricsFromPingdom(checkId, apiKey, user, password)
     send_event(checkId, { current: uptime, status: 'uptime-below-999' })
   end
 
+end
 
+def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, criticalThreshold)
+
+  # Get the unix timestamps
+  _24hoursInSeconds = 12 * 60 * 60
+  timeNow = Time.now.to_i
+
+
+  from = (timeNow - _24hoursInSeconds) * 1000
+  to = timeNow * 1000
+
+  urlUptime = "https://rest.logentries.com/query/logs/574a6e5c-cc27-4362-bed6-e93df3730a72?to=#{to}&from=#{from}&query=#{query}"
+  response = RestClient.get(urlUptime, {"X-Api-Key" => apiKey})
+
+  if response.code == 202
+
+    jsonResponse = JSON.parse(response.body, :symbolize_names => true)
+    linkToFollow = jsonResponse[:links][0][:href]
+
+    # logentries weirdness
+    sleep(5)
+
+    responseFromSubsequentRequest = RestClient.get(linkToFollow, {"X-Api-Key" => apiKey})
+
+    if responseFromSubsequentRequest.code == 200
+
+      jsonResponse = JSON.parse(responseFromSubsequentRequest.body, :symbolize_names => true)
+      perc95Series = jsonResponse[:statistics][:timeseries][:rt]
+
+      status = 'green'
+      points = []
+      (0..11).each do |i|
+        if perc95Series[i][:percentile] > criticalThreshold
+          status = 'orange'
+        end
+        points << { x: i, y: perc95Series[i][:percentile] }
+      end
+
+      print points
+
+      send_event(dataId, points: points, status: status)
+    end
+
+  else
+    print "Unexpected response code from logentries :: #{response.code}"
+
+  end
 
 end
 
-SCHEDULER.every '10s', first_in: 0 do |job|
+SCHEDULER.every '60s', first_in: 0 do |job|
 
   performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/tests/critical', true)
   performCheckAndSendEventToWidgets('change-credentials', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/change-credentials-critical', false)
@@ -63,6 +111,8 @@ SCHEDULER.every '10s', first_in: 0 do |job|
   getUptimeMetricsFromPingdom('1974865', apiKey, user, password)
   getUptimeMetricsFromPingdom('2142836', apiKey, user, password)
   getUptimeMetricsFromPingdom('2147820', apiKey, user, password)
+
+  getResponseTimeMetricsFromLogentries('session-api-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, 300)
 
 end
 

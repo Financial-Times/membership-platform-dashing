@@ -26,7 +26,7 @@ class Dashing.Graph extends Dashing.Widget
 
     @graph.series[0].data = @get('points') if @get('points')
 
-    x_axis = new Rickshaw.Graph.Axis.Time(graph: @graph)
+    x_axis = new Rickshaw.Graph.Axis.X(graph: @graph)
     y_axis = new Rickshaw.Graph.Axis.Y(graph: @graph, tickFormat: Rickshaw.Fixtures.Number.formatKMBT)
     @graph.render()
 
@@ -34,3 +34,10 @@ class Dashing.Graph extends Dashing.Widget
     if @graph
       @graph.series[0].data = data.points
       @graph.render()
+
+    if data.status
+      # clear existing "status-*" classes
+      $(@get('node')).attr 'class', (i,c) ->
+        c.replace /\bstatus-\S+/g, ''
+      # add new class
+      $(@get('node')).addClass "status-#{data.status}"
