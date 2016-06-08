@@ -4,7 +4,7 @@
 $background-color:  #dc5945;
 
 $title-color:       rgba(255, 255, 255, 0.7);
-$moreinfo-color:    rgba(255, 255, 255, 0.3);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
 $tick-color:        rgba(0, 0, 0, 0.4);
 
 
@@ -36,7 +36,7 @@ $tick-color:        rgba(0, 0, 0, 0.4);
 
   .more-info {
     color: $moreinfo-color;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 20px;
     margin-top: 0;
   }
