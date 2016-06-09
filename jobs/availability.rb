@@ -50,7 +50,7 @@ def getUptimeMetricsFromPingdom(checkId, apiKey, user, password)
 
 end
 
-def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, criticalThreshold)
+def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, logkey, criticalThreshold)
 
   # Get the unix timestamps
   _24hoursInSeconds = 12 * 60 * 60
@@ -60,7 +60,7 @@ def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, criticalThreshol
   from = (timeNow - _24hoursInSeconds) * 1000
   to = timeNow * 1000
 
-  urlUptime = "https://rest.logentries.com/query/logs/574a6e5c-cc27-4362-bed6-e93df3730a72?to=#{to}&from=#{from}&query=#{query}"
+  urlUptime = "https://rest.logentries.com/query/logs/#{logkey}?to=#{to}&from=#{from}&query=#{query}"
   response = RestClient.get(urlUptime, {"X-Api-Key" => apiKey})
 
   if response.code == 202
@@ -69,11 +69,9 @@ def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, criticalThreshol
     linkToFollow = jsonResponse[:links][0][:href]
 
     # logentries weirdness
-    sleep(5)
+    sleep(20)
 
     responseFromSubsequentRequest = RestClient.get(linkToFollow, {"X-Api-Key" => apiKey})
-
-    print responseFromSubsequentRequest
 
     if responseFromSubsequentRequest.code == 200
 
@@ -101,6 +99,8 @@ def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, criticalThreshol
 
 end
 
+getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2FPOST%20%5C%2Flogin%20.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '2ef22249-9bf5-49c7-8024-79e3d5462de8', 300)
+
 SCHEDULER.every '60s', first_in: 0 do |job|
 
   performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/tests/critical', true)
@@ -114,8 +114,13 @@ SCHEDULER.every '60s', first_in: 0 do |job|
   getUptimeMetricsFromPingdom('2142836', apiKey, user, password)
   getUptimeMetricsFromPingdom('2147820', apiKey, user, password)
 
-  getResponseTimeMetricsFromLogentries('validate-session-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, 300)
-  getResponseTimeMetricsFromLogentries('get-user-products-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fproducts.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, 300)
+end
+
+SCHEDULER.every '120s', first_in: 0 do |job|
+
+  getResponseTimeMetricsFromLogentries('validate-session-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
+  getResponseTimeMetricsFromLogentries('get-user-products-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fproducts.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
+  getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2FPOST%20%5C%2Flogin%20.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '2ef22249-9bf5-49c7-8024-79e3d5462de8', 300)
 
 end
 
