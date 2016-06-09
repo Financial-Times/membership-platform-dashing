@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <title>
+      Membership Programme, IAM Platform Outcomes - 2016
+    </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <h2 align="center">Membership Programme, IAM Platform Outcomes Dashboard - 2016</h2>
+      <hr>
+      <div class="row">
+
+        <div class="col-md-4">
+          <h4>Number of IAM Platform API Clients</h4>
+          <div id="numberOfIamPlatformApiClients" style="width: 600px; height: 300px;"></div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Number of B2B Engaged Users Since Launch of Corp SSO</h4>
+          <div id="numberOfB2BEngagedUsersSinceLaunchOfCorpSso" style="width: 600px; height: 300px;"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Google charts JS -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        $.getJSON("/iam-outcomes-data.json", function(json) {
+          console.log(json.numberOfIamPlatformApiClients.max);
+
+          // numberOfIamPlatformApiClients
+          var data1 = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['', json.numberOfIamPlatformApiClients.current]
+          ]);
+
+          var options1 = {
+            width: 600,
+            height: 300,
+            min: json.numberOfIamPlatformApiClients.min,
+            max: json.numberOfIamPlatformApiClients.max,
+            redFrom: json.numberOfIamPlatformApiClients.redFrom,
+            redTo: json.numberOfIamPlatformApiClients.redTo,
+            yellowFrom: json.numberOfIamPlatformApiClients.yellowFrom,
+            yellowTo: json.numberOfIamPlatformApiClients.yellowTo,
+            greenFrom: json.numberOfIamPlatformApiClients.greenFrom,
+            greenTo: json.numberOfIamPlatformApiClients.greenTo,
+            minorTicks: json.numberOfIamPlatformApiClients.minorTicks
+          };
+
+          var chart1 = new google.visualization.Gauge(document.getElementById('numberOfIamPlatformApiClients'));
+          chart1.draw(data1, options1);
+
+          <!-- numberOfB2BEngagedUsersSinceLaunchOfCorpSso -->
+          var data2 = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['', json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.current]
+          ]);
+
+          var options2 = {
+            width: 600,
+            height: 300,
+            min: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.min,
+            max: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.max,
+            redFrom: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.redFrom,
+            redTo: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.redTo,
+            yellowFrom: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.yellowFrom,
+            yellowTo: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.yellowTo,
+            greenFrom: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.greenFrom,
+            greenTo: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.greenTo,
+            minorTicks: json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.minorTicks
+          };
+          var chart2 = new google.visualization.Gauge(document.getElementById('numberOfB2BEngagedUsersSinceLaunchOfCorpSso'));
+          chart2.draw(data2, options2);
+
+        });
+
+      }
+    </script>
+
+  </body>
+</html>

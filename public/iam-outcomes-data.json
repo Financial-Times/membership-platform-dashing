@@ -1,0 +1,27 @@
+{
+  "numberOfIamPlatformApiClients": {
+    "min": 0,
+    "max": 25,
+    "current": 14,
+    "redFrom": 0,
+    "redTo": 14,
+    "yellowFrom": 14,
+    "yellowTo": 17,
+    "greenFrom": 17,
+    "greenTo": 25,
+    "minorTicks": 5
+  },
+
+  "numberOfB2BEngagedUsersSinceLaunchOfCorpSso": {
+    "min": 0,
+    "max": 25,
+    "current": 10,
+    "redFrom": 0,
+    "redTo": 14,
+    "yellowFrom": 14,
+    "yellowTo": 17,
+    "greenFrom": 17,
+    "greenTo": 25,
+    "minorTicks": 5
+  }
+}
