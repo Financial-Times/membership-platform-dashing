@@ -9,7 +9,8 @@
     "yellowTo": 17,
     "greenFrom": 17,
     "greenTo": 25,
-    "minorTicks": 5
+    "minorTicks": 5,
+    "lastUpdated": "Last updated on June 9, 2016 at 13:30"
   },
 
   "numberOfB2BEngagedUsersSinceLaunchOfCorpSso": {
@@ -22,6 +23,7 @@
     "yellowTo": 17,
     "greenFrom": 17,
     "greenTo": 25,
-    "minorTicks": 5
+    "minorTicks": 5,
+    "lastUpdated": "Last updated on June 9, 2016 at 13:30"
   }
 }

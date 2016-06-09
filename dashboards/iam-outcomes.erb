@@ -17,16 +17,25 @@
       <div class="row">
 
         <div class="col-md-4">
-          <h4>Number of IAM Platform API Clients</h4>
-          <div id="numberOfIamPlatformApiClients" style="width: 600px; height: 300px;"></div>
+          <div align="left">
+            <h5>Number of IAM Platform API Clients</h5>
+            <div id="numberOfIamPlatformApiClients" style="width: 600px; height: 300px;"></div>
+            <a href="/iam-outcomes-more-info-numberOfIamPlatformApiClients.html" target="_blank">More info</a>
+            <p id="numberOfIamPlatformApiClientsLastUpdated">Last updated on 9 June 2016, 12:54</p>
+          </div>
         </div>
 
         <div class="col-md-4">
-          <h4>Number of B2B Engaged Users Since Launch of Corp SSO</h4>
-          <div id="numberOfB2BEngagedUsersSinceLaunchOfCorpSso" style="width: 600px; height: 300px;"></div>
+          <div align="left">
+            <h5>B2B Engaged Users Since Launch of Corp SSO</h5>
+            <div id="numberOfB2BEngagedUsersSinceLaunchOfCorpSso" style="width: 600px; height: 300px;"></div>
+            <a href="/iam-outcomes-more-info-numberOfB2BEngagedUsersSinceLaunchOfCorpSso.html" target="_blank">More info</a>
+            <p id="numberOfB2BEngagedUsersSinceLaunchOfCorpSsoLastUpdated">Last updated on 9 June 2016, 12:54</p>
+          </div>
         </div>
 
       </div>
+      <hr>
     </div>
 
     <!-- JQuery -->
@@ -69,6 +78,9 @@
           var chart1 = new google.visualization.Gauge(document.getElementById('numberOfIamPlatformApiClients'));
           chart1.draw(data1, options1);
 
+          document.getElementById('numberOfIamPlatformApiClientsLastUpdated').innerHTML
+              = json.numberOfIamPlatformApiClients.lastUpdated;
+
           <!-- numberOfB2BEngagedUsersSinceLaunchOfCorpSso -->
           var data2 = google.visualization.arrayToDataTable([
             ['Label', 'Value'],
@@ -91,6 +103,8 @@
           var chart2 = new google.visualization.Gauge(document.getElementById('numberOfB2BEngagedUsersSinceLaunchOfCorpSso'));
           chart2.draw(data2, options2);
 
+          document.getElementById('numberOfB2BEngagedUsersSinceLaunchOfCorpSsoLastUpdated').innerHTML
+              = json.numberOfB2BEngagedUsersSinceLaunchOfCorpSso.lastUpdated;
         });
 
       }
