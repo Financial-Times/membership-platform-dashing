@@ -1,9 +1,9 @@
 {
   "numberOfIamPlatformApiClients": {
-    "min": 10,
+    "min": 5,
     "max": 25,
     "current": 16,
-    "redFrom": 10,
+    "redFrom": 5,
     "redTo": 14,
     "yellowFrom": 14,
     "yellowTo": 18,
@@ -14,16 +14,16 @@
   },
 
   "numberOfB2BEngagedUsersSinceLaunchOfCorpSso": {
-    "min": 0,
-    "max": 25,
-    "current": 10,
-    "redFrom": 0,
-    "redTo": 14,
-    "yellowFrom": 14,
-    "yellowTo": 17,
-    "greenFrom": 17,
-    "greenTo": 25,
-    "minorTicks": 5,
+    "min": -1000,
+    "max": 6000,
+    "current": 0,
+    "redFrom": -1000,
+    "redTo": 0,
+    "yellowFrom": 0,
+    "yellowTo": 3500,
+    "greenFrom": 3500,
+    "greenTo": 6000,
+    "minorTicks": 10,
     "lastUpdated": "Last updated on June 9, 2016 at 13:30"
   }
 }
