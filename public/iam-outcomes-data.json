@@ -14,10 +14,10 @@
   },
 
   "numberOfB2BEngagedUsersSinceLaunchOfCorpSso": {
-    "min": -1000,
+    "min": -2000,
     "max": 6000,
     "current": 0,
-    "redFrom": -1000,
+    "redFrom": -2000,
     "redTo": 0,
     "yellowFrom": 0,
     "yellowTo": 3500,
