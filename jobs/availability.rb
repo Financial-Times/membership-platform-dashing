@@ -63,43 +63,35 @@ def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, logkey, critical
   urlUptime = "https://rest.logentries.com/query/logs/#{logkey}?to=#{to}&from=#{from}&query=#{query}"
   response = RestClient.get(urlUptime, {"X-Api-Key" => apiKey})
 
-  if response.code == 202
+  stats = nil
 
+  while stats.nil?
     jsonResponse = JSON.parse(response.body, :symbolize_names => true)
-    linkToFollow = jsonResponse[:links][0][:href]
-
-    # logentries weirdness
-    sleep(20)
-
-    responseFromSubsequentRequest = RestClient.get(linkToFollow, {"X-Api-Key" => apiKey})
-
-    if responseFromSubsequentRequest.code == 200
-
-      jsonResponse = JSON.parse(responseFromSubsequentRequest.body, :symbolize_names => true)
-      perc95Series = jsonResponse[:statistics][:timeseries][:rt]
-
-      status = 'green'
-      points = []
-      (0..11).each do |i|
-        if perc95Series[i][:percentile] > criticalThreshold
-          status = 'orange'
-        end
-        points << { x: i, y: perc95Series[i][:percentile] }
-      end
-
-      print points
-
-      send_event(dataId, points: points, status: status)
+    stats = jsonResponse[:statistics]
+    if stats.nil?
+      linkToFollow = jsonResponse[:links][0][:href]
+      response = RestClient.get(linkToFollow, {"X-Api-Key" => apiKey})
+      print response
+      print "\n"
+      sleep 5
     end
-
-  else
-    print "Unexpected response code from logentries :: #{response.code}"
-
   end
 
-end
+  perc95Series = jsonResponse[:statistics][:timeseries][:rt]
+  status = 'green'
+  points = []
+  (0..11).each do |i|
+    if perc95Series[i][:percentile] > criticalThreshold
+      status = 'orange'
+    end
+    points << { x: i, y: perc95Series[i][:percentile] }
+  end
 
-getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2FPOST%20%5C%2Flogin%20.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '2ef22249-9bf5-49c7-8024-79e3d5462de8', 300)
+  print "\n #{points}"
+
+  send_event(dataId, points: points, status: status)
+
+end
 
 SCHEDULER.every '30s', first_in: 0 do |job|
 
