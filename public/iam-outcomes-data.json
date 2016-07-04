@@ -2,7 +2,7 @@
   "numberOfIamPlatformApiClients": {
     "min": 5,
     "max": 25,
-    "current": 16,
+    "current": 20,
     "redFrom": 5,
     "redTo": 14,
     "yellowFrom": 14,
@@ -10,7 +10,7 @@
     "greenFrom": 18,
     "greenTo": 25,
     "minorTicks": 5,
-    "lastUpdated": "Last updated on June 9, 2016 at 15:40"
+    "lastUpdated": "Last updated on 4 July, 2016 at 14:10"
   },
 
   "numberOfB2BEngagedUsersSinceLaunchOfCorpSso": {
