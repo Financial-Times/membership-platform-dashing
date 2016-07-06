@@ -100,11 +100,13 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('reset-password', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/reset-password-critical', false)
   performCheckAndSendEventToWidgets('validate-session', 'ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com', '/tests/critical-validate', false)
   performCheckAndSendEventToWidgets('get-user-products', 'usr-product-svc-at-eu-prod.herokuapp.com', '/tests/get-products-critical', false)
+  performCheckAndSendEventToWidgets('authorise-content', 'ft-memb-access-service-at-elb-eu-287296531.eu-west-1.elb.amazonaws.com', '/tests/authorise-content-critical', false)
   getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
   getUptimeMetricsFromPingdom('1974827', apiKey, user, password)
   getUptimeMetricsFromPingdom('1974865', apiKey, user, password)
   getUptimeMetricsFromPingdom('2142836', apiKey, user, password)
   getUptimeMetricsFromPingdom('2147820', apiKey, user, password)
+  getUptimeMetricsFromPingdom('2217477', apiKey, user, password)
 
 end
 
