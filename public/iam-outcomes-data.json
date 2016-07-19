@@ -2,7 +2,7 @@
   "numberOfIamPlatformApiClients": {
     "min": 5,
     "max": 25,
-    "current": 22,
+    "current": 20,
     "redFrom": 5,
     "redTo": 14,
     "yellowFrom": 14,
