@@ -2,7 +2,7 @@
   "numberOfIamPlatformApiClients": {
     "min": 0,
     "max": 25,
-    "current": 14
+    "current": 18
   },
 
   "numberOfCommercePlatformApiClients": {
