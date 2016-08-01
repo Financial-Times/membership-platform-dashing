@@ -5,18 +5,18 @@
 
     <!-- login -->
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://login-api-at-eu-prod.herokuapp.com/tests/critical', '_blank');">
-      <div data-id="login" data-view="Availability" data-title="Identity Management" data-text="Log in users to ft.com"></div>
+      <div data-id="login" data-view="Availability" data-title="Log in users to ft.com" data-text="Impact: Users can't login"></div>
     </li>
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1965634', '_blank');">
       <div data-id="1965634" data-view="Number" data-title="Log in users to ft.com" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
     </li>
     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://logentries.com/app/3a539d2f#/dashboard/32878', '_blank');">
-      <div data-id="login-rt-metrics" data-moreinfo="95th percentile response times - last 12 hours" data-suffix="ms" data-view="Graph" data-title="Login users to ft.com"></div>
+      <div data-id="login-rt-metrics" data-moreinfo="95th percentile response times - last 12 hours" data-suffix="ms" data-view="Graph" data-title="Log in users to ft.com"></div>
     </li>
 
     <!-- validate-session -->
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com/tests/critical-validate', '_blank');">
-      <div data-id="validate-session" data-view="Availability" data-title="Identity Management" data-text="Validate user sessions"></div>
+      <div data-id="validate-session" data-view="Availability" data-title="Validate user sessions" data-text="Impact: Subscribers can't access content"></div>
     </li>
     <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/2142836', '_blank');">
       <div data-id="2142836" data-view="Number" data-title="Validate user sessions" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
@@ -27,7 +27,7 @@
 
     <!-- get-user-products -->
     <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('https://usr-product-svc-at-eu-prod.herokuapp.com/tests/get-products-critical', '_blank');">
-      <div data-id="get-user-products" data-view="Availability" data-title="Identity Management" data-text="Get User Products"></div>
+      <div data-id="get-user-products" data-view="Availability" data-title="Get user products" data-text="Impact: User subscription status not retrievable. May have access issues."></div>
     </li>
     <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/2147820', '_blank');">
       <div data-id="2147820" data-view="Number" data-title="Get User Products" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
@@ -38,7 +38,7 @@
 
     <!-- change-credentials -->
     <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/change-credentials-critical', '_blank');">
-      <div data-id="change-credentials" data-view="Availability" data-title="Identity Management" data-text="Change user credentials"></div>
+      <div data-id="change-credentials" data-view="Availability" data-title="Change user credentials" data-text="Impact: Users can't change email and/or password"></div>
     </li>
     <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1974827', '_blank');">
       <div data-id="1974827" data-view="Number" data-title="Change user credentials" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
@@ -46,7 +46,7 @@
 
     <!-- reset-password -->
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/reset-password-critical', '_blank');">
-      <div data-id="reset-password" data-view="Availability" data-title="Identity Management" data-text="Retrieve forgotten passwords"></div>
+      <div data-id="reset-password" data-view="Availability" data-title="Retrieve forgotten passwords" data-text="Impact: Users can't retrieve forgotten password"></div>
     </li>
     <li data-row="2" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/1974865', '_blank');">
       <div data-id="1974865" data-view="Number" data-title="Retrieve forgotten passwords" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
@@ -54,7 +54,7 @@
 
     <!-- authorise-content -->
     <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-access-service-at-elb-eu-287296531.eu-west-1.elb.amazonaws.com/tests/authorise-content-critical', '_blank');">
-      <div data-id="authorise-content" data-view="Availability" data-title="Identity Management" data-text="Authorise content access"></div>
+      <div data-id="authorise-content" data-view="Availability" data-title="Authorise content access" data-text="Impact: Paywall not functioning as expected.  Content may be free.  Users may not have access."></div>
     </li>
     <li data-row="2" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/2225403', '_blank');">
       <div data-id="2225403" data-view="Number" data-title="Authorise content access" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
