@@ -12,55 +12,10 @@
   <body>
 
     <div class="container-fluid">
-      <h2 align="center">Membership Programme Outcomes Dashboard - 2016</h2>
+      <h2 align="center">Membership Programme Outcomes - 2016</h2>
       <hr>
       <div class="row">
-
-        <div class="col-md-4">
-          <h4>Number of IAM Platform API Clients</h4>
-          <div id="numberOfIamPlatformApiClients" style="width: 600px; height: 300px;"></div>
-        </div>
-
-        <div class="col-md-4">
-          <h4>Number of Commerce Platform API Clients</h4>
-          <div id="numberOfCommercePlatformApiClients" style="width: 600px; height: 300px;"></div>
-        </div>
-
-        <div class="col-md-4">
-          <h4>Number of Systems on UCS/Solaris</h4>
-          <div id="numberOfSystemsOnUcsSolaris" style="width: 600px; height: 300px;"></div>
-        </div>
-
-        <div class="col-md-4">
-          <h4>Measuring Availability of our Core Platform Capabilities</h4>
-          <div id="numberOfIamCapabilitiesWithAvailabilityMeasured" style="width: 600px; height: 300px;"></div>
-        </div>
-
-        <div class="col-md-4">
-          <h4>B2B - Increase Engaged Users</h4>
-          <div id="b2bIncreaseEngagedUsers" style="width: 600px; height: 300px;"></div>
-        </div>
-
-        <div class="col-md-4">
-          <h4>B2B - Increase NPS</h4>
-          <div id="b2bIncreaseNps" style="width: 600px; height: 300px;"></div>
-        </div>
-
-        <div class="col-md-4">
-          <h4>Improve Retention - RFV of Subscribers</h4>
-          TBD
-        </div>
-
-        <div class="col-md-4">
-          <h4>Improve Productivity - % of Cases Conducted via Self-Serve</h4>
-          <div id="percentageOfCasesConductedViaSelfServe" style="width: 600px; height: 300px;"></div>
-        </div>
-
-        <div class="col-md-4">
-          <h4>Improve Profitability - Setup Volumes / Incremental Revenue</h4>
-          <div id="setupVolumesIncrementalRevenue" style="width: 600px; height: 300px;"></div>
-        </div>
-
+        <div id="sampleArea"></div>
       </div>
     </div>
 
@@ -70,6 +25,9 @@
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+    <!-- Mustache JS-->
+    <script type="text/javascript" src="/mustache.js"></script>
+
     <!-- Google charts JS -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -78,202 +36,47 @@
 
       function drawChart() {
 
-        $.getJSON("https://raw.githubusercontent.com/Financial-Times/membership-platform-dashing/master/public/2016-outcomes-data.json", function(json) {
-          console.log(json.numberOfIamPlatformApiClients.max);
+        $.getJSON("/2016-outcomes-data.json", function(json) {
 
-          // numberOfIamPlatformApiClients
-          var data1 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.numberOfIamPlatformApiClients.current]
-          ]);
+          var data = json.data;
 
-          var options1 = {
-            width: 600,
-            height: 300,
-            min: json.numberOfIamPlatformApiClients.min,
-            max: json.numberOfIamPlatformApiClients.max,
-            redFrom: 0,
-            redTo: 14,
-            yellowFrom:14,
-            yellowTo: 17,
-            greenFrom: 17,
-            greenTo: 25,
-            minorTicks: 5
-          };
+          for(var i in json.data) {
 
-          var chart1 = new google.visualization.Gauge(document.getElementById('numberOfIamPlatformApiClients'));
-          chart1.draw(data1, options1);
+            console.log(data[i]);
 
-          <!-- numberOfCommercePlatformApiClients -->
-          var data2 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.numberOfCommercePlatformApiClients.current]
-          ]);
+            var templateData = {
+              title: data[i].title,
+              id: data[i].id,
+              lastUpdated: data[i].lastUpdated
+            };
+            var template = '<div class="col-md-4"><h4>{{title}}</h4><div id="{{id}}" style="width: 600px; height: 300px;"></div>' +
+                '<p>Last updated: {{lastUpdated}}</p></div>';
+            var html = Mustache.to_html(template, templateData);
+            $('#sampleArea').append(html);
 
-          var options2 = {
-            width: 600,
-            height: 300,
-            min: json.numberOfCommercePlatformApiClients.min,
-            max: json.numberOfCommercePlatformApiClients.max,
-            redFrom: 0,
-            redTo: 1,
-            yellowFrom:1,
-            yellowTo: 4,
-            greenFrom: 4,
-            greenTo: 8,
-            minorTicks: 8
-          };
-          var chart2 = new google.visualization.Gauge(document.getElementById('numberOfCommercePlatformApiClients'));
-          chart2.draw(data2, options2);
+            var data1 = google.visualization.arrayToDataTable([
+              ['Label', 'Value'],
+              ['', data[i].current]
+            ]);
 
-          <!-- numberOfSystemsOnUcsSolaris -->
-          var data3 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.numberOfSystemsOnUcsSolaris.current]
-          ]);
+            var options1 = {
+              width: 600,
+              height: 300,
+              min: data[i].min,
+              max: data[i].max,
+              redFrom: data[i].redFrom,
+              redTo: data[i].redTo,
+              yellowFrom: data[i].yellowFrom,
+              yellowTo: data[i].yellowTo,
+              greenFrom: data[i].greenFrom,
+              greenTo: data[i].greenTo,
+              minorTicks: data[i].minorTicks
+            };
 
-          var options3 = {
-            width: 600,
-            height: 300,
-            min: json.numberOfSystemsOnUcsSolaris.min,
-            max: json.numberOfSystemsOnUcsSolaris.max,
-            redFrom: 47,
-            redTo: 42,
-            yellowFrom:42,
-            yellowTo: 37,
-            greenFrom: 37,
-            greenTo: 0,
-            minorTicks: 8
-          };
-          var chart3 = new google.visualization.Gauge(document.getElementById('numberOfSystemsOnUcsSolaris'));
-          chart3.draw(data3, options3);
-
-          <!-- numberOfIamCapabilitiesWithAvailabilityMeasured -->
-          var data4 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.numberOfIamCapabilitiesWithAvailabilityMeasured.current]
-          ]);
-
-          var options4 = {
-            width: 600,
-            height: 300,
-            min: json.numberOfIamCapabilitiesWithAvailabilityMeasured.min,
-            max: json.numberOfIamCapabilitiesWithAvailabilityMeasured.max,
-            redFrom: 0,
-            redTo: 7,
-            yellowFrom:7,
-            yellowTo: 15,
-            greenFrom: 15,
-            greenTo: 20,
-            minorTicks: 8
-          };
-          var chart4 = new google.visualization.Gauge(document.getElementById('numberOfIamCapabilitiesWithAvailabilityMeasured'));
-          chart4.draw(data4, options4);
-
-          <!-- percentageOfCasesConductedViaSelfServe -->
-          var data6 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.percentageOfCasesConductedViaSelfServe.current]
-          ]);
-
-          var options6 = {
-            width: 600,
-            height: 300,
-            min: json.percentageOfCasesConductedViaSelfServe.min,
-            max: json.percentageOfCasesConductedViaSelfServe.max,
-            yellowFrom:0,
-            yellowTo: 50,
-            greenFrom: 50,
-            greenTo: 100,
-            minorTicks: 10
-          };
-          var chart6 = new google.visualization.Gauge(document.getElementById('percentageOfCasesConductedViaSelfServe'));
-          chart6.draw(data6, options6);
-
-          <!-- setupVolumesIncrementalRevenue -->
-          var data7 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.setupVolumesIncrementalRevenue.current]
-          ]);
-
-          var options7 = {
-            width: 600,
-            height: 300,
-            min: json.setupVolumesIncrementalRevenue.min,
-            max: json.setupVolumesIncrementalRevenue.max,
-            yellowFrom:0,
-            yellowTo: 2100,
-            greenFrom: 2100,
-            greenTo: 2500,
-            minorTicks: 10
-          };
-          var chart7 = new google.visualization.Gauge(document.getElementById('setupVolumesIncrementalRevenue'));
-          chart7.draw(data7, options7);
-
-          <!-- b2bIncreaseEngagedUsers -->
-          var data8 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.b2bIncreaseEngagedUsers.current]
-          ]);
-
-          var options8 = {
-            width: 600,
-            height: 300,
-            min: json.b2bIncreaseEngagedUsers.min,
-            max: json.b2bIncreaseEngagedUsers.max,
-            yellowFrom:0,
-            yellowTo: 6000,
-            greenFrom: 6000,
-            greenTo: 8000,
-            minorTicks: 10
-          };
-          var chart8 = new google.visualization.Gauge(document.getElementById('b2bIncreaseEngagedUsers'));
-          chart8.draw(data8, options8);
-
-          <!-- b2bIncreaseNps -->
-          var data9 = google.visualization.arrayToDataTable([
-            ['Label', 'Value'],
-            ['', json.b2bIncreaseNps.current]
-          ]);
-
-          var options9 = {
-            width: 600,
-            height: 300,
-            min: json.b2bIncreaseNps.min,
-            max: json.b2bIncreaseNps.max,
-            yellowFrom:0,
-            yellowTo: 45,
-            greenFrom: 45,
-            greenTo: 70,
-            minorTicks: 7
-          };
-          var chart9 = new google.visualization.Gauge(document.getElementById('b2bIncreaseNps'));
-          chart9.draw(data9, options9);
-
+            var chart1 = new google.visualization.Gauge(document.getElementById(data[i].id));
+            chart1.draw(data1, options1);
+          }
         });
-
-        <!-- rfv-of-subscribers -->
-//        var data5 = google.visualization.arrayToDataTable([
-//          ['Label', 'Value'],
-//          ['', 3]
-//        ]);
-//
-//        var options5 = {
-//          width: 600,
-//          height: 300,
-//          min: 0,
-//          max: 120,
-//          redFrom: 0,
-//          redTo: 7,
-//          yellowFrom:7,
-//          yellowTo: 15,
-//          greenFrom: 15,
-//          greenTo: 20,
-//          minorTicks: 8
-//        };
-//        var chart5 = new google.visualization.Gauge(document.getElementById('rfv-of-subscribers'));
-//        chart5.draw(data5, options5);
-
       }
     </script>
 
