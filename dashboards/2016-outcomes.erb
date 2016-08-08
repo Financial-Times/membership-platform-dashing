@@ -36,7 +36,10 @@
 
       function drawChart() {
 
-        $.getJSON("https://raw.githubusercontent.com/Financial-Times/membership-platform-dashing/master/public/2016-outcomes-data.json", function(json) {
+        var d = new Date();
+        var dataUrl = "https://raw.githubusercontent.com/Financial-Times/membership-platform-dashing/master/public/2016-outcomes-data.json?a"+"="+ d.getTime();
+
+        $.getJSON(dataUrl, function(json) {
 
           var data = json.data;
 
