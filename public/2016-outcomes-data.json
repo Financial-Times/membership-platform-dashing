@@ -30,51 +30,6 @@
       "greenTo": 12,
       "minorTicks": 5,
       "lastUpdated": "Last updated on 4 July, 2016 at 14:10"
-    },
-    {
-      "id": "somethingElse1",
-      "title": "Something else 1",
-      "min": 1,
-      "max": 12,
-      "current": 5,
-      "redFrom": 1,
-      "redTo": 4,
-      "yellowFrom": 4,
-      "yellowTo": 6,
-      "greenFrom": 6,
-      "greenTo": 12,
-      "minorTicks": 5,
-      "lastUpdated": "Last updated on 4 July, 2016 at 14:10"
-    },
-    {
-      "id": "somethingElse2",
-      "title": "Something else test 2",
-      "min": 1,
-      "max": 12,
-      "current": 5,
-      "redFrom": 1,
-      "redTo": 4,
-      "yellowFrom": 4,
-      "yellowTo": 6,
-      "greenFrom": 6,
-      "greenTo": 12,
-      "minorTicks": 5,
-      "lastUpdated": "Last updated on 4 July, 2016 at 14:10"
-    },
-    {
-      "id": "somethingElse3",
-      "title": "Something else test 3",
-      "min": 1,
-      "max": 12,
-      "current": 11,
-      "redFrom": 1,
-      "redTo": 4,
-      "yellowFrom": 4,
-      "yellowTo": 6,
-      "greenFrom": 6,
-      "greenTo": 12,
-      "minorTicks": 5,
-      "lastUpdated": "Last updated on 4 July, 2016 at 14:10"
-    }    
+    }
   ]
 }
