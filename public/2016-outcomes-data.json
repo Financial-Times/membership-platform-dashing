@@ -33,7 +33,7 @@
     },
     {
       "id": "AIMServiceRobustness",
-      "title": "AIM Service leve",
+      "title": "AIM Service level",
       "min": 90,
       "max": 100,
       "current": 95,
