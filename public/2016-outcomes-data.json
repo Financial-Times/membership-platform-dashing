@@ -30,6 +30,21 @@
       "greenTo": 12,
       "minorTicks": 5,
       "lastUpdated": "Last updated on 4 July, 2016 at 14:10"
+    },
+    {
+      "id": "AIMServiceRobustness",
+      "title": "AIM Service leve",
+      "min": 90,
+      "max": 100,
+      "current": 95,
+      "redFrom": 90,
+      "redTo": 93,
+      "yellowFrom": 93,
+      "yellowTo": 98,
+      "greenFrom": 98,
+      "greenTo": 100,
+      "minorTicks": 5,
+      "lastUpdated": "Last updated on 10 August, 2016 at 12:23"
     }
   ]
 }
