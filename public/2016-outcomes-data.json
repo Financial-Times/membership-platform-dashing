@@ -33,7 +33,7 @@
     },
     {
       "id": "AIMServiceRobustness",
-      "title": "AIM Service level Availability (%)",
+      "title": "AIM Service level Availability (%) awaiting JF input",
       "min": 90,
       "max": 100,
       "current": 95,
