@@ -96,6 +96,7 @@ end
 SCHEDULER.every '30s', first_in: 0 do |job|
   getUptimeMetricsFromPingdom('2277708', apiKey, user, password)
   getUptimeMetricsFromPingdom('2277713', apiKey, user, password)
+  getUptimeMetricsFromPingdom('2278338', apiKey, user, password)
 
 end
 
