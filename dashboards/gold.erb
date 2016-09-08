@@ -1,0 +1,22 @@
+<% content_for :title do %>One Membership Dashboard<% end %>
+<div id="tier">Gold Tier</div>
+<div class="gridster">
+  <ul>
+    <h4>Acceptance Tests</h4>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://user-profile-svc-at-lb-eu-west-1.memb.ft.com/tests/get-profile-critical', '_blank');">
+      <div data-id="user-profile" data-view="Onemembership" data-title="Retrieve User Profile" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content."></div>
+    </li>
+  </ul>
+  <ul>
+    <h4>Health Checks</h4>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/7b02faa0e45544c26c7f4dddcdafa251', '_blank');">
+      <div data-id="user-profile-eu" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-view="Onemembership" data-title="User Profile Service (Europe)" data-moreinfo="user-profile-svc-lb-eu-west-1.memb.ft.com" data-suffix="%"></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/41ddaf5f7110db4f05cf1104d21c0d78', '_blank');">
+      <div data-id="user-profile-us" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-view="Onemembership" data-title="User Profile Service (USA)" data-moreinfo="user-profile-svc-lb-us-east-1.memb.ft.com" data-suffix="%"></div>
+    </li>
+  </ul>
+  <ul>
+    <h4>Nagios Checks</h4>
+  </ul>
+</div>
