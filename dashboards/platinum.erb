@@ -4,40 +4,40 @@
   <ul>
     <h4>Acceptance Tests</h4>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://login-api-at-eu-prod.herokuapp.com/tests/critical', '_blank');">
-      <div data-id="login-tests-eu" data-view="Onemembership" data-title="Log in users to ft.com (Europe)" data-text="Impact: Users can't login"></div>
+      <div data-id="login-tests-eu" data-view="Onemembership" data-title="Log in users to ft.com (Europe)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
     </li>
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('https://login-api-at-us-prod.herokuapp.com/tests/critical', '_blank');">
-      <div data-id="login-tests-us" data-view="Onemembership" data-title="Log in users to ft.com (USA)" data-text="Impact: Users can't login"></div>
+      <div data-id="login-tests-us" data-view="Onemembership" data-title="Log in users to ft.com (USA)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
     </li>
     <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/change-credentials-critical', '_blank');">
-      <div data-id="user-cred-tests-eu" data-view="Onemembership" data-title="Change user credentials (Europe)" data-text="Impact: Users can't change email and/or password"></div>
+      <div data-id="user-cred-tests-eu" data-view="Onemembership" data-title="Change user credentials (Europe)" data-text="Impact: Users can't change email and/or password" data-tier="Platinum"></div>
     </li>
     <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-access-service-at-elb-eu-287296531.eu-west-1.elb.amazonaws.com/tests/authorise-content-critical', '_blank');">
-      <div data-id="access-service-tests-eu" data-view="Onemembership" data-title="Authorise content access (Europe)" data-text="Impact: Paywall not functioning as expected.  Content may be free.  Users may not have access."></div>
+      <div data-id="access-service-tests-eu" data-view="Onemembership" data-title="Authorise content access (Europe)" data-tier="Platinum" data-text="Impact: Paywall not functioning as expected.  Content may be free.  Users may not have access."></div>
     </li>
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('https://usr-product-svc-at-eu-prod.herokuapp.com/tests/get-products-critical', '_blank');">
-      <div data-id="user-products" data-view="Onemembership" data-title="Get User Products" data-text="Impact: User subscription status not retrievable. May have access issues."></div>
+      <div data-id="user-products" data-view="Onemembership" data-title="Get User Products" data-text="Impact: User subscription status not retrievable. May have access issues." data-tier="Platinum"></div>
     </li>
   </ul>
   <ul>
     <h4>Health Checks</h4>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/399714ea73e0015e425666917931e6a4', '_blank');">
-      <div data-id="loginapi-eu" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login API (Europe)" data-moreinfo="login-api-eu-prod.herokuapp.com" data-suffix="%"></div>
+      <div data-id="loginapi-eu" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login API (Europe)" data-moreinfo="login-api-eu-prod.herokuapp.com" data-tier="Platinum"></div>
     </li>
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/ad9e37cf76f09190d5e39a9fd71a874f', '_blank');">
-      <div data-id="loginapi-us" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login API (USA)" data-moreinfo="login-api-us-prod.herokuapp.com" data-suffix="%"></div>
+      <div data-id="loginapi-us" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login API (USA)" data-moreinfo="login-api-us-prod.herokuapp.com" data-tier="Platinum"></div>
     </li>
     <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/28c1512a87c1bb807ed55a6ecd7798b1', '_blank');">
-      <div data-id="loginapp-eu" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login App (Europe)" data-moreinfo="login-app-eu-prod.herokuapp.com" data-suffix="%"></div>
+      <div data-id="loginapp-eu" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login App (Europe)" data-moreinfo="login-app-eu-prod.herokuapp.com" data-tier="Platinum"></div>
     </li>
     <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/ce39ec61ec18eefb5fadb9d4a89d1543', '_blank');">
-      <div data-id="loginapp-us" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login App (USA)" data-moreinfo="login-app-us-prod.herokuapp.com" data-suffix="%"></div>
+      <div data-id="loginapp-us" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login App (USA)" data-moreinfo="login-app-us-prod.herokuapp.com" data-tier="Platinum"></div>
     </li>
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/993cc7443e3161a3c4d5e0081b13e44d', '_blank');">
-      <div data-id="usr-product-svc-eu" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (Europe)" data-moreinfo="usr-product-svc-euwest1-prod.memb.ft.com" data-suffix="%"></div>
+      <div data-id="usr-product-svc-eu" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (Europe)" data-moreinfo="usr-product-svc-euwest1-prod.memb.ft.com" data-tier="Platinum"></div>
     </li>
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/2e770914bca342d7bf9d8589efb29539', '_blank');">
-      <div data-id="usr-product-svc-us" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (USA)" data-moreinfo="usr-product-svc-useast1-prod.memb.ft.com" data-suffix="%"></div>
+      <div data-id="usr-product-svc-us" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (USA)" data-moreinfo="usr-product-svc-useast1-prod.memb.ft.com" data-tier="Platinum"></div>
     </li>
 
   </ul>

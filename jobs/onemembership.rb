@@ -52,6 +52,7 @@ end
 def failHealthCheck(widgetId, urlHost, urlPath, s3oCredentials)
   send_event('alerts', { identifier: widgetId, value: 'Dependency session-api not healthy' })
   send_event(widgetId, { identifier: widgetId, value: 'danger', status: 'unavailable' })
+  sleep(1)
 end
 
 def getHealthcheckFailures(page)
@@ -165,6 +166,5 @@ SCHEDULER.every '30s', first_in: 0 do |job|
 end
 
 SCHEDULER.every '35s', first_in: 0 do |job|
-
 end
 

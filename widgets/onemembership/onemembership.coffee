@@ -1,7 +1,9 @@
 class Dashing.Onemembership extends Dashing.Widget
 
   ready: ->
-
+    tierElement = $(@node).find("p[class='tier']")
+    tier = tierElement.text()
+    tierElement.addClass tier.toLowerCase()
 
   onData: (data) ->
     # clear existing "status-*" classes

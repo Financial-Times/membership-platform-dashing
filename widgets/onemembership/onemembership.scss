@@ -30,6 +30,25 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
     color: rgba(255, 255, 255, 0.7);
   }
 
+  .tier {
+    font-style: normal;
+    font-size: 15px;
+    font-weight: bolder;
+    top: 10px;
+    position: absolute;
+    width: 90%;
+  }
+
+  .platinum {
+    background: #E5E4E2;
+    color: black;
+  }
+
+  .gold {
+    background: gold;
+    color: white;
+  }
+
   &.large h3 {
     font-size: 65px;
   }
