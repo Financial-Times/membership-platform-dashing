@@ -52,10 +52,21 @@ end
 def getStatusFromNagios(widgetId, urlHost, urlPath)
   nagiosUrl = urlHost + urlPath
   page = Nokogiri::HTML(open(nagiosUrl))
-  ok = page.at_css('td.serviceTotalsOK').inner_text
-  warn = page.at_css('td.serviceTotalsWARNING').inner_text
-  crit = page.at_css('td.serviceTotalsCRITICAL').inner_text
-  send_event(widgetId, { good: ok, critical: crit, warning: warn})
+  warn = '0'
+  crit = '0'
+  warnEl = page.at_css('td.serviceTotalsWARNING')
+  critEl = page.at_css('td.serviceTotalsCRITICAL')
+  unless warnEl.nil? || warnEl == 0
+    warn = page.at_css('td.serviceTotalsWARNING').inner_text
+  end
+  unless critEl.nil? || critEl == 0
+    crit = page.at_css('td.serviceTotalsCRITICAL').inner_text
+  end
+  if crit == '0'
+    send_event(widgetId, { critical: crit, warning: warn, value: 'ok', status: 'available'})
+  else
+    send_event(widgetId, { critical: crit, warning: warn, value: 'danger', status: 'unavailable'})
+  end
 end
 
 def failHealthCheck(widgetId, urlHost, urlPath, s3oCredentials)

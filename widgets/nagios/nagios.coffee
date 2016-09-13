@@ -5,6 +5,13 @@ class Dashing.Nagios extends Dashing.Widget
     tier = tierElement.text()
     tierElement.addClass tier.toLowerCase()
 
+  onData: (data) ->
+    # clear existing "status-*" classes
+    $(@get('node')).attr 'class', (i,c) -> c.replace /\bstatus-\S+/g, ''
+    # add new class
+    $(@get('node')).addClass "status-#{data.value}"
+    $(@get('node')).addClass "status-#{data.status}"
+
   removeAlert = (identifier) ->
     spanAlert = $('#alerts', window.parent.document).find("span[alert-id=#{identifier}]")
     # Only remove if it exists
