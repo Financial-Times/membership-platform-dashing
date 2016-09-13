@@ -18,7 +18,7 @@ class Dashing.Nagios extends Dashing.Widget
     if(spanAlert.length)
       spanAlert.remove()
 
-  maxColumn = 5
+  maxColumn = 7
 
   fixLayout = (failingNode, baseElement) ->
     # Move to first column and row

@@ -1,4 +1,11 @@
 <% content_for :title do %>One Membership Dashboard - Platinum<% end %>
+<script type="text/javascript">
+$(function() {
+  Dashing.widget_base_dimensions = [260, 260]
+  Dashing.widget_margins = [1, 1]
+
+});
+</script>
 <div id="tier">Platinum Tier</div>
 <div class="gridster">
   <ul>
@@ -36,7 +43,7 @@
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/993cc7443e3161a3c4d5e0081b13e44d', '_blank');">
       <div data-id="usr-product-svc-eu" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (Europe)" data-moreinfo="usr-product-svc-euwest1-prod.memb.ft.com" data-tier="Platinum"></div>
     </li>
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/2e770914bca342d7bf9d8589efb29539', '_blank');">
+    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/2e770914bca342d7bf9d8589efb29539', '_blank');">
       <div data-id="usr-product-svc-us" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (USA)" data-moreinfo="usr-product-svc-useast1-prod.memb.ft.com" data-tier="Platinum"></div>
     </li>
 
