@@ -186,6 +186,7 @@ SCHEDULER.every '30s', first_in: 0 do |job|
 end
 
 SCHEDULER.every '15s', first_in: 0 do |job|
+ getStatusFromNagios('session-service-us-nagios', 'http://ftmon04010-lvnj-us-p', '/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3')
  getStatusFromNagios('apps-memb-us-nagios', 'http://ftmon32370-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
 end
 
