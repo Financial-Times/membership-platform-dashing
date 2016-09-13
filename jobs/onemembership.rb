@@ -49,6 +49,15 @@ def getStatusFromHealthCheck(widgetId, urlHost, urlPath, s3oCredentials)
   end
 end
 
+def getStatusFromNagios(widgetId, urlHost, urlPath)
+  nagiosUrl = urlHost + urlPath
+  page = Nokogiri::HTML(open(nagiosUrl))
+  ok = page.at_css('td.serviceTotalsOK').inner_text
+  warn = page.at_css('td.serviceTotalsWARNING').inner_text
+  crit = page.at_css('td.serviceTotalsCRITICAL').inner_text
+  send_event(widgetId, { good: ok, critical: crit, warning: warn})
+end
+
 def failHealthCheck(widgetId, urlHost, urlPath, s3oCredentials)
   send_event('alerts', { identifier: widgetId, value: 'Dependency session-api not healthy' })
   send_event(widgetId, { identifier: widgetId, value: 'danger', status: 'unavailable' })
@@ -163,6 +172,10 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   getStatusFromHealthCheck('user-profile-eu', 'http://healthcheck.ft.com', '/service/7b02faa0e45544c26c7f4dddcdafa251', s3oCredentials)
   getStatusFromHealthCheck('user-profile-us', 'http://healthcheck.ft.com', '/service/41ddaf5f7110db4f05cf1104d21c0d78', s3oCredentials)
 
+end
+
+SCHEDULER.every '15s', first_in: 0 do |job|
+ getStatusFromNagios('apps-memb-us-nagios', 'http://ftmon32370-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
 end
 
 SCHEDULER.every '35s', first_in: 0 do |job|
