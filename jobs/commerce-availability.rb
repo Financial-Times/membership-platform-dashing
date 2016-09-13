@@ -95,7 +95,9 @@ end
 
 SCHEDULER.every '30s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('retrieve-access-licence', 'acc-licence-svc-at-eu-prod.herokuapp.com', '/tests/get-licence-critical', true)
+  performCheckAndSendEventToWidgets('retrieve-acquisition-context', 'acq-context-svc-at-eu-prod.herokuapp.com', '/tests/get-context-critical', true)
   getUptimeMetricsFromPingdom('2014224', apiKey, user, password)
+  getUptimeMetricsFromPingdom('2109444', apiKey, user, password)
 
 end
 
