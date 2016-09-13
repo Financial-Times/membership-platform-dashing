@@ -166,7 +166,5 @@ SCHEDULER.every '30s', first_in: 0 do |job|
 end
 
 SCHEDULER.every '35s', first_in: 0 do |job|
-  failHealthCheck('usr-product-svc-eu', 'http://healthcheck.ft.com', '/service/993cc7443e3161a3c4d5e0081b13e44d', s3oCredentials)
-  failHealthCheck('usr-product-svc-us', 'http://healthcheck.ft.com', '/service/2e770914bca342d7bf9d8589efb29539', s3oCredentials)
 end
 
