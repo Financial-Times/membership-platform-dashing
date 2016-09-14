@@ -52,8 +52,8 @@ end
 def getStatusFromNagios(widgetId, urlHost, urlPath)
   nagiosUrl = urlHost + urlPath
   print 'Accessing ' + nagiosUrl + "\n"
+  puts 'Accessing ' + nagiosUrl + "\n"
   page = Nokogiri::HTML(open(nagiosUrl))
-  print page.to_html + "\n"
   warn = '0'
   crit = '0'
   warnEl = page.at_css('td.serviceTotalsWARNING')
