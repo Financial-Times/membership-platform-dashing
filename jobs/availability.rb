@@ -112,12 +112,12 @@ SCHEDULER.every '30s', first_in: 0 do |job|
 
 end
 
-SCHEDULER.every '600s', first_in: 0 do |job|
+#SCHEDULER.every '600s', first_in: 0 do |job|
 
-  getResponseTimeMetricsFromLogentries('validate-session-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
-  getResponseTimeMetricsFromLogentries('get-user-products-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fproducts.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
-  getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2FPOST%20%5C%2Flogin%20.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '2ef22249-9bf5-49c7-8024-79e3d5462de8', 300)
+  #getResponseTimeMetricsFromLogentries('validate-session-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
+  #getResponseTimeMetricsFromLogentries('get-user-products-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fproducts.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
+  #getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2FPOST%20%5C%2Flogin%20.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '2ef22249-9bf5-49c7-8024-79e3d5462de8', 300)
   #getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fprofile.*%20(%3FP%3Crt%3E%5Cd%20)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
 
-end
+#end
 
