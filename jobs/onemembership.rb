@@ -52,7 +52,6 @@ end
 def getStatusFromNagios(widgetId, urlHost, urlPath)
   nagiosUrl = urlHost + urlPath
   print 'Accessing ' + nagiosUrl + "\n"
-  puts 'Accessing ' + nagiosUrl + "\n"
   page = Nokogiri::HTML(open(nagiosUrl))
   warn = '0'
   crit = '0'
@@ -65,9 +64,9 @@ def getStatusFromNagios(widgetId, urlHost, urlPath)
     crit = page.at_css('td.serviceTotalsCRITICAL').inner_text
   end
   if crit == '0'
-    send_event(widgetId, { critical: crit, warning: warn, value: 'ok', status: 'available'})
+    send_event(widgetId, { identifier: widgetId, critical: crit, warning: warn, value: 'ok', status: 'available'})
   else
-    send_event(widgetId, { critical: crit, warning: warn, value: 'danger', status: 'unavailable'})
+    send_event(widgetId, { identifier: widgetId, critical: crit, warning: warn, value: 'danger', status: 'unavailable'})
   end
 end
 
@@ -188,8 +187,8 @@ SCHEDULER.every '30s', first_in: 0 do |job|
 end
 
 SCHEDULER.every '15s', first_in: 0 do |job|
- getStatusFromNagios('session-service-us-nagios', 'http://ftmon04010-lvnj-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3')
- getStatusFromNagios('apps-memb-us-nagios', 'http://ftmon32370-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('session-service-us-nagios', 'http://ftmon04010-lvnj-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3')
+  getStatusFromNagios('apps-memb-us-nagios', 'http://ftmon32370-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
 end
 
 SCHEDULER.every '35s', first_in: 0 do |job|

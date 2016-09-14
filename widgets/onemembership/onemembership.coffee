@@ -14,6 +14,7 @@ class Dashing.Onemembership extends Dashing.Widget
 
     # remove existing alerts if status OK
     if(data.value == 'ok')
+      removeWidget(data.identifier)
       removeAlert(data.identifier)
     else # If monitor failed
       # Get parent list item
@@ -31,6 +32,15 @@ class Dashing.Onemembership extends Dashing.Widget
       if(failureOverlayContent.find("div[data-id=" + dataId + "]").length == 0)
         failureOverlayContent.append($(@node).parent().clone())
         fixLayout(failureOverlayContent.find("div[data-id=" + dataId + "]").parent(), failureOverlayContent)
+
+  removeWidget = (identifier) ->
+    overlayContent = $('div#overlay-content', window.parent.document)
+    widgetAlertDiv = overlayContent.find("div[data-id=#{identifier}]")
+    # Only remove if it exists
+    if(widgetAlertDiv.length)
+      console.log('Removing widget ' + identifier)
+      widgetParent = widgetAlertDiv.parent()
+      widgetParent.remove()
 
   removeAlert = (identifier) ->
     spanAlert = $('#alerts', window.parent.document).find("span[alert-id=#{identifier}]")

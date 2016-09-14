@@ -20,6 +20,8 @@ class Dashing.Nagios extends Dashing.Widget
       # Get grandparent ul
       grandparent = $(@get('node')).parent().parent()
       fixLayout(parentListItem, grandparent)
+    else
+      removeWidget(data.identifier)
 
     if($(@node).hasClass("status-danger"))
       # Add to failure overlay
@@ -29,6 +31,15 @@ class Dashing.Nagios extends Dashing.Widget
       if(failureOverlayContent.find("div[data-id=" + dataId + "]").length == 0)
         failureOverlayContent.append($(@node).parent().clone())
         fixLayout(failureOverlayContent.find("div[data-id=" + dataId + "]").parent(), failureOverlayContent)
+
+  removeWidget = (identifier) ->
+    overlayContent = $('div#overlay-content', window.parent.document)
+    widgetAlertDiv = overlayContent.find("div[data-id=#{identifier}]")
+    # Only remove if it exists
+    if(widgetAlertDiv.length)
+      console.log('Removing widget ' + identifier)
+      widgetParent = widgetAlertDiv.parent()
+      widgetParent.remove()
 
   removeAlert = (identifier) ->
     spanAlert = $('#alerts', window.parent.document).find("span[alert-id=#{identifier}]")
