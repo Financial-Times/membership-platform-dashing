@@ -25,6 +25,12 @@ $(function() {
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('https://usr-product-svc-at-eu-prod.herokuapp.com/tests/get-products-critical', '_blank');">
       <div data-id="user-products" data-view="Onemembership" data-title="Get User Products" data-text="Impact: User subscription status not retrievable. May have access issues." data-tier="Platinum"></div>
     </li>
+    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-eu-prod.herokuapp.com/tests', '_blank');">
+      <div data-id="login-app-tests-eu" data-view="Onemembership" data-title="Log in users to ft.com APP (Europe)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-us-prod.herokuapp.com/tests', '_blank');">
+      <div data-id="login-app-tests-us" data-view="Onemembership" data-title="Log in users to ft.com APP (USA)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
+    </li>
   </ul>
   <ul>
     <h4>Health Checks</h4>
@@ -46,7 +52,9 @@ $(function() {
     <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/2e770914bca342d7bf9d8589efb29539', '_blank');">
       <div data-id="usr-product-svc-us" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (USA)" data-moreinfo="usr-product-svc-useast1-prod.memb.ft.com" data-tier="Platinum"></div>
     </li>
-
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/a6d88564f925fd8f16e6eae588b2f145', '_blank');">
+      <div data-id="session-user-data" data-text="Impact: Users are unable to acquire sessions. May have access issues." data-view="Onemembership" data-title="Session User Data" data-moreinfo="session-user-data.webservices.ft.com" data-tier="Platinum"></div>
+    </li>
   </ul>
   <ul>
     <h4>Nagios Checks</h4>
