@@ -46,7 +46,9 @@ class Dashing.Onemembership extends Dashing.Widget
     spanAlert = $('#alerts', window.parent.document).find("span[alert-id=#{identifier}]")
     # Only remove if it exists
     if(spanAlert.length)
-      spanAlert.remove()
+      spanAlert.each ->
+        $(@)
+          .remove()
 
   maxColumn = 7
 
