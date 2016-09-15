@@ -94,30 +94,11 @@ def getResponseTimeMetricsFromLogentries(dataId, query, apiKey, logkey, critical
 end
 
 SCHEDULER.every '30s', first_in: 0 do |job|
-
-  performCheckAndSendEventToWidgets('login', 'login-api-at-eu-prod.herokuapp.com', '/tests/critical', true)
-  performCheckAndSendEventToWidgets('change-credentials', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/change-credentials-critical', false)
-  performCheckAndSendEventToWidgets('reset-password', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/reset-password-critical', false)
-  performCheckAndSendEventToWidgets('validate-session', 'ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com', '/tests/critical-validate', false)
-  performCheckAndSendEventToWidgets('get-user-products', 'usr-product-svc-at-eu-prod.herokuapp.com', '/tests/get-products-critical', false)
-  performCheckAndSendEventToWidgets('authorise-content', 'ft-memb-access-service-at-elb-eu-287296531.eu-west-1.elb.amazonaws.com', '/tests/authorise-content-critical', false)
-  performCheckAndSendEventToWidgets('retrieve-user-profile', 'user-profile-svc-at-lb-eu-west-1.memb.ft.com', '/tests/get-profile-critical', true)
-  getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
-  getUptimeMetricsFromPingdom('1974827', apiKey, user, password)
-  getUptimeMetricsFromPingdom('1974865', apiKey, user, password)
-  getUptimeMetricsFromPingdom('2142836', apiKey, user, password)
-  getUptimeMetricsFromPingdom('2147820', apiKey, user, password)
-  getUptimeMetricsFromPingdom('2225403', apiKey, user, password)
-  getUptimeMetricsFromPingdom('2005882', apiKey, user, password)
+  performCheckAndSendEventToWidgets('retrieve-access-licence', 'acc-licence-svc-at-eu-prod.herokuapp.com', '/tests/get-licence-critical', true)
+  performCheckAndSendEventToWidgets('retrieve-acquisition-context', 'acq-context-svc-at-eu-prod.herokuapp.com', '/tests/get-context-critical', true)
+  getUptimeMetricsFromPingdom('2014224', apiKey, user, password)
+  getUptimeMetricsFromPingdom('2109444', apiKey, user, password)
 
 end
 
-#SCHEDULER.every '600s', first_in: 0 do |job|
-
-  #getResponseTimeMetricsFromLogentries('validate-session-rt-metrics', 'where(%2F%5C%2Fsessions.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
-  #getResponseTimeMetricsFromLogentries('get-user-products-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fproducts.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
-  #getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2FPOST%20%5C%2Flogin%20.*%20(%3FP%3Crt%3E%5Cd%2B)%24%2F)%20calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '2ef22249-9bf5-49c7-8024-79e3d5462de8', 300)
-  #getResponseTimeMetricsFromLogentries('login-rt-metrics', 'where(%2F%5C%2Fusers%5C%2F.*%5C%2Fprofile.*%20(%3FP%3Crt%3E%5Cd%20)%24%2F)calculate(percentile(95)%3Art)%20timeslice(12)', logentriesApiKey, '574a6e5c-cc27-4362-bed6-e93df3730a72', 300)
-
-#end
 

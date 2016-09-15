@@ -1,0 +1,27 @@
+<% content_for :title do %>Availability of Commerce Services<% end %>
+
+<div class="gridster">
+  <ul>
+    <!-- Retrieve access licence -->
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://acc-licence-svc-at-eu-prod.herokuapp.com/tests/get-licence-critical', '_blank');">
+          <div data-id="retrieve-access-licence" data-view="Availability" data-title="Retrieve access licence" data-text="Impact: Access licences cannot be retrieved.  Users may experience errors. User may not be able to access content."></div>
+        </li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/2014224', '_blank');">
+          <div data-id="2014224" data-view="Number" data-title="Retrieve access licence" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
+        </li>
+        <!--<li data-row="3" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://logentries.com/app/3a539d2f#/dashboard/39524', '_blank');">
+          <div data-id="retrieve-access-licence-metrics" data-moreinfo="95th percentile response times - last 12 hours" data-suffix="ms" data-view="Graph" data-title="Retrieve access licence"></div>
+        </li>-->
+
+        <!-- Retrieve acquisition context -->
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('https://acq-context-svc-at-eu-prod.herokuapp.com/tests/get-context-critical', '_blank');">
+          <div data-id="retrieve-acquisition-context" data-view="Availability" data-title="Retrieve acquisition context" data-text="Impact: Acquisition contexts cannot be retrieved.  Users may experience errors. User may not be able to access content."></div>
+        </li>
+        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://stats.pingdom.com/56q7ie6hfq8y/2109444', '_blank');">
+          <div data-id="2109444" data-view="Number" data-title="Retrieve acquisition context" data-moreinfo="Last 7 days uptime" data-suffix="%"></div>
+        </li>
+        <!--<li data-row="3" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://logentries.com/app/3a539d2f#/dashboard/39524', '_blank');">
+          <div data-id="retrieve-access-licence-metrics" data-moreinfo="95th percentile response times - last 12 hours" data-suffix="ms" data-view="Graph" data-title="Retrieve access licence"></div>
+        </li>-->
+  </ul>
+</div>
