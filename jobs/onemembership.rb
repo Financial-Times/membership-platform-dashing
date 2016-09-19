@@ -129,6 +129,16 @@ end
 SCHEDULER.every '15s', first_in: 0 do |job|
   getStatusFromNagios('session-service-us-nagios', 'http://ftmon04010-lvnj-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3')
   getStatusFromNagios('apps-memb-us-nagios', 'http://ftmon32370-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon65966-law1c-eu-p', 'http://ftmon65966-law1c-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon65973-lae1c-us-p', 'http://ftmon65973-lae1c-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon04002-lviw-uk-p', 'http://ftmon04002-lviw-uk-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon04010-lvnj-us-p', 'http://ftmon04010-lvnj-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon04002-lviw-uk-p-nagios', 'http://ftmon04002-lviw-uk-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon04010-lvnj-us-p-nagios', 'http://ftmon04010-lvnj-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon65966-law1c-eu-p-nagios', 'http://ftmon65966-law1c-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon65973-lae1c-us-p-nagios', 'http://ftmon65973-lae1c-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon40525-law1a-eu-p-nagios', 'http://ftmon40525-law1a-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon40529-lae1a-us-p-nagios', 'http://ftmon40529-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
 end
 
 SCHEDULER.every '35s', first_in: 0 do |job|
