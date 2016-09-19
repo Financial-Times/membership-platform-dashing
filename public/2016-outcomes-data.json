@@ -43,7 +43,7 @@
       "yellowTo": 500,
       "greenFrom": 100,
       "greenTo": 1000,
-      "minorTicks": 100,
+      "minorTicks": 10,
       "lastUpdated": "Last updated on 19 Sept, 2016 at 17:09"
     },
     {
