@@ -32,6 +32,21 @@
       "lastUpdated": "Last updated on 19 Sept, 2016 at 17:09"
     },
     {
+      "id": "NumberOfEbabledCSSOEndUsers",
+      "title": "Number of enabled CSSO end users",
+      "min": 0,
+      "max": 1000,
+      "current": 45,
+      "redFrom": 0,
+      "redTo": 60,
+      "yellowFrom": 60,
+      "yellowTo": 500,
+      "greenFrom": 100,
+      "greenTo": 1000,
+      "minorTicks": 50,
+      "lastUpdated": "Last updated on 19 Sept, 2016 at 17:09"
+    },
+    {
       "id": "AIMServiceRobustness",
       "title": "AIM Service level Availability (%) awaiting JF input",
       "min": 90,
