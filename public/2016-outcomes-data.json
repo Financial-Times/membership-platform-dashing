@@ -33,7 +33,7 @@
     },
     {
       "id": "NumberOfEbabledCSSOEndUsers",
-      "title": "Number of enabled CSSO end users",
+      "title": "Number of Enabled CSSO End Users",
       "min": 0,
       "max": 1000,
       "current": 45,
@@ -43,7 +43,7 @@
       "yellowTo": 500,
       "greenFrom": 100,
       "greenTo": 1000,
-      "minorTicks": 50,
+      "minorTicks": 100,
       "lastUpdated": "Last updated on 19 Sept, 2016 at 17:09"
     },
     {
