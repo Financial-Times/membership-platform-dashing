@@ -43,10 +43,13 @@ class Dashing.Onemembership extends Dashing.Widget
       widgetParent.remove()
 
   removeAlert = (identifier) ->
-    spanAlert = $('#alerts', window.parent.document).find("span[alert-id=#{identifier}]")
+    alertsDiv = $('#alerts', window.parent.document)
+    marquee = alertsDiv.find('marquee');
+    spanAlert = marquee.children("span[alert-id=#{identifier}]")
     # Only remove if it exists
     if(spanAlert.length)
       spanAlert.each ->
+        console.log("Removing alert #{identifier}")
         $(@)
           .remove()
 
