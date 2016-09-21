@@ -38,6 +38,9 @@ def getUptimeMetricsFromPingdom(checkId, apiKey, user, password)
   responseUptime = RestClient.get(urlUptime, {"App-Key" => apiKey, "Account-Email" => "ftpingdom@ft.com"})
   responseUptime = JSON.parse(responseUptime.body, :symbolize_names => true)
 
+  avgResponseTime = responseUptime[:summary][:responsetime][:avgresponse]
+  send_event(checkId+"resp", { current: avgResponseTime, status: 'uptime-999-or-above'})
+
   totalUp = responseUptime[:summary][:status][:totalup]
   totalDown = responseUptime[:summary][:status][:totaldown]
   uptime = (100 * (totalUp.to_f / (totalDown.to_f + totalUp.to_f))).round(2)
