@@ -1,0 +1,99 @@
+<% content_for :title do %>One Membership Dashboard - Platinum<% end %>
+<script type="text/javascript">
+$(function() {
+  Dashing.widget_base_dimensions = [260, 260]
+  Dashing.widget_margins = [1, 1]
+
+});
+</script>
+<div id="tier" class="platinum">PLATINUM TIER</div>
+<div class="gridster">
+  <ul>
+    <h4>Acceptance Tests</h4>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://login-api-at-eu-prod.herokuapp.com/tests/critical', '_blank');">
+      <div data-id="login-tests-eu" data-view="Onemembership" data-title="Log in users to ft.com (Europe)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('https://login-api-at-us-prod.herokuapp.com/tests/critical', '_blank');">
+      <div data-id="login-tests-us" data-view="Onemembership" data-title="Log in users to ft.com (USA)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/change-credentials-critical', '_blank');">
+      <div data-id="user-cred-tests-eu" data-view="Onemembership" data-title="Change user credentials (Europe)" data-text="Impact: Users can't change email and/or password" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-access-service-at-elb-eu-287296531.eu-west-1.elb.amazonaws.com/tests/authorise-content-critical', '_blank');">
+      <div data-id="access-service-tests-eu" data-view="Onemembership" data-title="Authorise content access (Europe)" data-tier="Platinum" data-text="Impact: Paywall not functioning as expected.  Content may be free.  Users may not have access."></div>
+    </li>
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('https://usr-product-svc-at-eu-prod.herokuapp.com/tests/get-products-critical', '_blank');">
+      <div data-id="user-products" data-view="Onemembership" data-title="Get User Products" data-text="Impact: User subscription status not retrievable. May have access issues." data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-eu-prod.herokuapp.com/tests', '_blank');">
+      <div data-id="login-app-tests-eu" data-view="Onemembership" data-title="Log in users to ft.com APP (Europe)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-us-prod.herokuapp.com/tests', '_blank');">
+      <div data-id="login-app-tests-us" data-view="Onemembership" data-title="Log in users to ft.com APP (USA)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
+    </li>
+  </ul>
+  <ul>
+    <h4>Health Checks</h4>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/399714ea73e0015e425666917931e6a4', '_blank');">
+      <div data-id="loginapi-eu" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login API (Europe)" data-moreinfo="login-api-eu-prod.herokuapp.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/ad9e37cf76f09190d5e39a9fd71a874f', '_blank');">
+      <div data-id="loginapi-us" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login API (USA)" data-moreinfo="login-api-us-prod.herokuapp.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/28c1512a87c1bb807ed55a6ecd7798b1', '_blank');">
+      <div data-id="loginapp-eu" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login App (Europe)" data-moreinfo="login-app-eu-prod.herokuapp.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/ce39ec61ec18eefb5fadb9d4a89d1543', '_blank');">
+      <div data-id="loginapp-us" data-text="Impact: Users can't login" data-view="Onemembership" data-title="Login App (USA)" data-moreinfo="login-app-us-prod.herokuapp.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/993cc7443e3161a3c4d5e0081b13e44d', '_blank');">
+      <div data-id="usr-product-svc-eu" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (Europe)" data-moreinfo="usr-product-svc-euwest1-prod.memb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/2e770914bca342d7bf9d8589efb29539', '_blank');">
+      <div data-id="usr-product-svc-us" data-text="Impact: User subscription status not retrievable. May have access issues." data-view="Onemembership" data-title="User Product Service (USA)" data-moreinfo="usr-product-svc-useast1-prod.memb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/a6d88564f925fd8f16e6eae588b2f145', '_blank');">
+      <div data-id="session-user-data" data-text="Impact: Users are unable to acquire sessions. May have access issues." data-view="Onemembership" data-title="Session User Data" data-moreinfo="session-user-data.webservices.ft.com" data-tier="Platinum"></div>
+    </li>
+  </ul>
+  <ul>
+    <h4>Nagios Checks</h4>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon04010-lvnj-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+          <div data-id="session-service-us-nagios" data-title="Session Service (Europe)" data-view="Nagios" data-moreinfo="ftmon04002-lviw-uk-p.osb.ft.com" data-tier="Platinum"></div>
+        </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon32370-lae1a-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+      <div data-id="apps-memb-us-nagios" data-title="APPS (USA East)" data-view="Nagios" data-moreinfo="ftmon32370-lae1a-us-p.osb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65966-law1c-eu-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+        <div data-id="ftmon65966-law1c-eu-p" data-title="Access-EU Membership" data-view="Nagios" data-moreinfo="ftmon65966-law1c-eu-p" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65973-lae1c-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+        <div data-id="ftmon65973-lae1c-us-p" data-title="Access-US Membership" data-view="Nagios" data-moreinfo="ftmon65973-lae1c-us-p" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon04002-lviw-uk-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+        <div data-id="ftmon04002-lviw-uk-p" data-title="Session-Service-UK Membership" data-view="Nagios" data-moreinfo="ftmon04002-lviw-uk-p" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon04010-lvnj-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+        <div data-id="ftmon04010-lvnj-us-p" data-title="Session-Service-US Membership" data-view="Nagios" data-moreinfo="ftmon04010-lvnj-us-p" data-tier="Platinum"></div>
+    </li>
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon04002-lviw-uk-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+        <div data-id="ftmon04002-lviw-uk-p-nagios" data-title="PROD IW SOCIAL-LOGIN-SESSION-SERVICE" data-view="Nagios" data-moreinfo="ftmon04002-lviw-uk-p.osb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon04010-lvnj-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+        <div data-id="ftmon04010-lvnj-us-p-nagios" data-title="PROD NJ SOCIAL-LOGIN-SESSION-SERVICE" data-view="Nagios" data-moreinfo="ftmon04010-lvnj-us-p.osb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65966-law1c-eu-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+        <div data-id="ftmon65966-law1c-eu-p-nagios" data-title="Access EUW1" data-view="Nagios" data-moreinfo="ftmon65966-law1c-eu-p.osb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65973-lae1c-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+        <div data-id="ftmon65973-lae1c-us-p-nagios" data-title="Access USE1" data-view="Nagios" data-moreinfo="ftmon65973-lae1c-us-p.osb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon40525-law1a-eu-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+        <div data-id="ftmon40525-law1a-eu-p-nagios" data-title="User credentials service EU" data-view="Nagios" data-moreinfo="ftmon40525-law1a-eu-p.osb.ft.com" data-tier="Platinum"></div>
+    </li>
+    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon40529-lae1a-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+        <div data-id="ftmon40529-lae1a-us-p-nagios" data-title="User credentials service US" data-view="Nagios" data-moreinfo="ftmon40529-lae1a-us-p.osb.ft.com" data-tier="Platinum"></div>
+    </li>
+  </ul>
+</div>
+

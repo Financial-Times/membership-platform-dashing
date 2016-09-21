@@ -14,7 +14,7 @@ Dashing.gridsterLayout = (positions) ->
     $(widget).attr('data-col', positions[index].col)
 
 Dashing.getWidgetPositions = ->
-  $(".gridster ul:first").gridster().data('gridster').serialize()
+  $(".gridster ul").gridster().data('gridster').serialize()
 
 Dashing.showGridsterInstructions = ->
   newWidgetPositions = Dashing.getWidgetPositions()

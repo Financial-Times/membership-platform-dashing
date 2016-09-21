@@ -1,0 +1,99 @@
+-# This is a dashboard in itself, so place it in the dashboards/ directory and
+-# configure the cycler below
+%head
+  %meta{:charset => "utf-8"}
+  %meta{:name => "description", :content => ""}
+  %meta{:name => "viewport", :content => "width=device-width"}
+  %meta{:http => {:equiv => "X-UA-Compatible"}, :content => "IE=edge,chrome=1"}
+
+  %title One Membership Dashing
+  %script{:src => "/assets/application.js", :type => "text/javascript"}
+  %link{:rel => "stylesheet", :href => "/assets/application.css"}
+  %script{:src => "/assets/cycler.js", :type => "text/javascript"}
+
+  %link{:rel => "stylesheet", :href => "//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700", :type => "text/css"}
+  %link{:rel => "icon", :href => "/assets/favicon.ico"}
+  %link{:rel => "stylesheet", :href => "/assets/one-membership.css"}
+
+
+%body
+  #overlay
+  #overlay-content.gridster
+
+  #container
+  :javascript
+    new Cycler({
+      // Board paths to cycle through
+      boards: ['platinum', 'gold'],
+      // How long to stay on each board, in seconds
+      duration: 15,
+      // By default, we only load the current board and the next one, to improve
+      // performance. By setting this to true, all boards can be loaded at once
+      loadAll: true,
+      width: 1920,
+      height: 1080
+    });
+
+  #alerts{:data => {:id => "alerts", :view => "Alert"}}
+    %marquee.tab.blink{:behavior => "scroll", :direction => "left", :scrollamount => "15"}
+
+  :javascript
+    $(function(){
+
+        var failureOverlay = $('#overlay');
+        var failureOverlayContent = $('#overlay-content');
+        var alertsDiv = $('#alerts');
+
+        var alertAudio = document.getElementById('audio');
+        var fixedAudio = document.getElementById('green');
+
+        $.fn.showScrollingAlert = function(){
+          alertsDiv.css('display', 'inline-block');
+        };
+
+        $.fn.hideScrollingAlert = function(){
+          alertsDiv.css('display', 'none');
+        };
+
+        $.fn.showFailureDashboard = function(){
+          failureOverlay.css('display', 'inline-block');
+          failureOverlayContent.css('display', 'inline-block');
+        };
+
+        $.fn.hideFailureDashboard = function(){
+          alertAudio.pause();
+          fixedAudio.play();
+          failureOverlayContent.empty();
+          failureOverlay.css('display', 'none');
+          failureOverlayContent.css('display', 'none');
+        };
+
+        window.setInterval(function(){
+          var alertsMarquee = alertsDiv.find('marquee');
+          if(alertsMarquee.children().length > 0){ // If there are failing monitors on the alerts widget
+            if(!failureOverlay.is(':visible') && !alertsDiv.is(':visible')) { // Only show if not visible
+              console.log('Playing audio without interval');
+              alertAudio.play();
+              $.fn.showScrollingAlert();
+              $.fn.showFailureDashboard();
+            }
+          } else {
+            if(failureOverlay.is(':visible') && alertsDiv.is(':visible')) { // Only hide alerts when they are visible
+              $.fn.hideScrollingAlert();
+              $.fn.hideFailureDashboard();
+            }
+          }
+        }, 3000);
+
+        window.setInterval(function(){
+          if(failureOverlay.is(':visible') && alertsDiv.is(':visible')) { // Only play when alerts are visible
+            console.log('Playing with interval');
+            alertAudio.play();
+          }
+        }, 30000);
+    });
+
+  %audio#audio{ :autostart => '0'}
+    %source{:src => "/alert.mp3",  :type => "audio/mpeg"}
+  %audio#green{ :autostart => '0'}
+    %source{:src => "/green.mp3", :type => "audio/mpeg"}
