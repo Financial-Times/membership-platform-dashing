@@ -56,9 +56,6 @@
         };
 
         $.fn.showFailureDashboard = function(){
-          if (alertAudio.paused) {
-            alertAudio.play();
-          }
           failureOverlay.css('display', 'inline-block');
           failureOverlayContent.css('display', 'inline-block');
         };
@@ -74,8 +71,12 @@
         window.setInterval(function(){
           var alertsMarquee = alertsDiv.find('marquee');
           if(alertsMarquee.children().length > 0){ // If there are failing monitors on the alerts widget
-            $.fn.showScrollingAlert();
-            $.fn.showFailureDashboard();
+            if(!failureOverlay.is(':visible') && !alertsDiv.is(':visible')) { // Only show if not visible
+              console.log('Playing audio without interval');
+              alertAudio.play();
+              $.fn.showScrollingAlert();
+              $.fn.showFailureDashboard();
+            }
           } else {
             if(failureOverlay.is(':visible') && alertsDiv.is(':visible')) { // Only hide alerts when they are visible
               $.fn.hideScrollingAlert();
@@ -83,6 +84,13 @@
             }
           }
         }, 3000);
+
+        window.setInterval(function(){
+          if(failureOverlay.is(':visible') && alertsDiv.is(':visible')) { // Only play when alerts are visible
+            console.log('Playing with interval');
+            alertAudio.play();
+          }
+        }, 30000);
     });
 
   %audio#audio{ :autostart => '0'}
