@@ -23,7 +23,6 @@ def performCheckAndSendEventToWidgets(widgetId, urlHostName, urlPath, tlsEnabled
   end
 
   response = http.request(Net::HTTP::Get.new(urlPath))
-  print 'Accessing ' + urlHostName + ' Status Code ' + response.code + "\n"
   if response.code == '200'
     send_event(widgetId, { identifier: widgetId, value: 'ok', status: 'available' })
   else
@@ -39,7 +38,6 @@ def getStatusFromHealthCheck(widgetId, urlHost, urlPath, s3oCredentials)
   cookieValue = 's3o-credentials=' + s3oCredentials
   page = Nokogiri::HTML(open(healthCheckUrl, 'Cookie' => cookieValue))
   status = page.at_css('#status > div').inner_text
-  print 'Status is ' + status + "\n"
   if status == 'OK'
     send_event(widgetId, { identifier: widgetId, value: 'ok', status: 'available' })
   else
@@ -52,7 +50,6 @@ end
 
 def getStatusFromNagios(widgetId, urlHost, urlPath)
   nagiosUrl = urlHost + urlPath
-  print 'Accessing ' + nagiosUrl + "\n"
   page = Nokogiri::HTML(open(nagiosUrl))
   warn = '0'
   crit = '0'
