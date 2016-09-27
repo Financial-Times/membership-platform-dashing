@@ -215,5 +215,15 @@ SCHEDULER.every '15s', first_in: 0 do |job|
 end
 
 SCHEDULER.every '35s', first_in: 0 do |job|
+  getHealth('dam-bridge-eu', 'dam-bridge-euwest1-prod.apps.memb.ft.com', '/__health', 8443, true)
+  getHealth('dam-bridge-us', 'dam-bridge-useast1-prod.apps.memb.ft.com', '/__health', 8443, true)
+  getHealth('b2b-fulfil-svc-app1-eu', 'ftaps32821-law1a-eu-p', '/__health', 8443, true)
+  getHealth('b2b-fulfil-svc-app1-us', 'ftaps63568-lae1c-us-p', '/__health', 8443, true)
+  getHealth('b2c-fulfil-svc-app1-eu', 'ftaps42261-law1a-eu-p', '/__health', 8443, true)
+  getHealth('b2c-fulfil-svc-app2-eu', 'ftaps42263-law1b-eu-p', '/__health', 8443, true)
+  getHealth('b2c-fulfil-svc-app2-us', 'ftaps42558-lae1c-us-p', '/__health', 8443, true)
+  getHealth('b2c-fulfil-svc-app1-us', 'ftaps42559-lae1a-us-p', '/__health', 8443, true)
+  getHealth('sf-offers-bridge-app1-eu', 'ftaps64081-law1a-eu-p', '/__health', 8443, true)
+  getHealth('sf-offers-bridge-app2-eu', 'ftaps64080-law1a-eu-p', '/__health', 8443, true)
 end
 
