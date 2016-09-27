@@ -1,29 +1,128 @@
 <% content_for :title do %>One Membership Dashboard<% end %>
 <script type="text/javascript">
-$(function() {
-  Dashing.widget_base_dimensions = [260, 260]
-  Dashing.widget_margins = [1, 1]
+    $(function () {
+        Dashing.widget_base_dimensions = [260, 260]
+        Dashing.widget_margins = [1, 1]
 
-});
+    });
 </script>
 <div id="tier" class="gold">GOLD TIER</div>
 <div class="gridster">
-  <ul>
-    <h4>Acceptance Tests</h4>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://user-profile-svc-at-lb-eu-west-1.memb.ft.com/tests/get-profile-critical', '_blank');">
-      <div data-id="user-profile" data-view="Onemembership" data-title="Retrieve User Profile" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-tier="Gold"></div>
-    </li>
-  </ul>
-  <ul>
-    <h4>Health Checks</h4>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/7b02faa0e45544c26c7f4dddcdafa251', '_blank');">
-      <div data-id="user-profile-eu" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-view="Onemembership" data-title="User Profile Service (Europe)" data-moreinfo="user-profile-svc-lb-eu-west-1.memb.ft.com" data-tier="Gold"></div>
-    </li>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/41ddaf5f7110db4f05cf1104d21c0d78', '_blank');">
-      <div data-id="user-profile-us" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-view="Onemembership" data-title="User Profile Service (USA)" data-moreinfo="user-profile-svc-lb-us-east-1.memb.ft.com" data-tier="Gold"></div>
-    </li>
-  </ul>
-  <ul>
-    <h4>Nagios Checks</h4>
-  </ul>
+    <ul>
+        <h4>Acceptance Tests</h4>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://user-profile-svc-at-lb-eu-west-1.memb.ft.com/tests/get-profile-critical', '_blank');">
+            <div data-id="user-profile" data-view="Onemembership" data-title="Retrieve User Profile" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-tier="Gold"></div>
+        </li>
+    </ul>
+    <ul>
+        <h4>Health Checks</h4>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/7b02faa0e45544c26c7f4dddcdafa251', '_blank');">
+            <div data-id="user-profile-eu" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-view="Onemembership" data-title="User Profile Service (Europe)" data-moreinfo="user-profile-svc-lb-eu-west-1.memb.ft.com" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/41ddaf5f7110db4f05cf1104d21c0d78', '_blank');">
+            <div data-id="user-profile-us" data-text="Impact: Users cannot be retrieved.  Users may experience errors. User may not be able to access content." data-view="Onemembership" data-title="User Profile Service (USA)" data-moreinfo="user-profile-svc-lb-us-east-1.memb.ft.com" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/f3b5a9c8792abcb2ec22000768719f4f', '_blank');">
+            <div data-id="sign-up-app-us" data-text="Impact: Users are unable to sign up." data-view="Onemembership" data-title="Membership Signup App" data-moreinfo="subscription.ft.com" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/2ebbedf9134d31785be75f92c4544610', '_blank');">
+            <div data-id="offer-api-us" data-text="Impact: Users are unable to retrieve offers." data-view="Onemembership" data-title="Offer API (USA)" data-moreinfo="offer-api-useast1-prod.memb.ft.com" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/7c6b11d53e132a0d4f74e2b4b7886d9f', '_blank');">
+            <div data-id="offer-api-eu" data-text="Impact: Users are unable to retrieve offers." data-view="Onemembership" data-title="Offer API (Europe)" data-moreinfo="offer-api-euwest1-prod.memb.ft.com" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps32892-law1b-eu-p:8443/__health', '_blank');">
+            <div data-id="acc-licence-svc-app2-eu" data-text="Impact: Add impact" data-view="Onemembership" data-title="acc-licence-svc-app2-eu" data-moreinfo="ftaps32892-law1b-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps32893-law1a-eu-p:8443/__health', '_blank');">
+            <div data-id="acc-licence-svc-app1-eu" data-title="acc-licence-svc-app1-eu" data-view="Onemembership" data-moreinfo="ftaps32893-law1a-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps32894-lae1c-us-p:8443/__health', '_blank');">
+            <div data-id="acc-licence-svc-app2-us" data-title="acc-licence-svc-app2-us" data-view="Onemembership" data-moreinfo="ftaps32894-lae1c-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps32895-lae1a-us-p:8443/__health', '_blank');">
+            <div data-id="acc-licence-svc-app1-us" data-title="acc-licence-svc-app1-us" data-view="Onemembership" data-moreinfo="ftaps32895-lae1a-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps39084-law1a-eu-p:8443/__health', '_blank');">
+            <div data-id="acq-context-svc-app1-eu" data-title="acq-context-svc-app1-eu" data-view="Onemembership" data-moreinfo="ftaps39084-law1a-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps39085-law1b-eu-p:8443/__health', '_blank');">
+            <div data-id="acq-context-svc-app2-eu" data-title="acq-context-svc-app2-eu" data-view="Onemembership" data-moreinfo="ftaps39085-law1b-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="2" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps39364-lae1a-us-p:8443/__health', '_blank');">
+            <div data-id="acq-context-svc-app1-us" data-title="acq-context-svc-app1-us" data-view="Onemembership" data-moreinfo="ftaps39364-lae1a-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="2" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps39365-lae1c-us-p:8443/__health', '_blank');">
+            <div data-id="acq-context-svc-app2-us" data-title="acq-context-svc-app2-us" data-view="Onemembership" data-moreinfo="ftaps39365-lae1c-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="2" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps32883-law1a-eu-p:8443/__health', '_blank');">
+            <div data-id="barrier-app-app1-eu" data-title="barrier-app-app1-eu" data-view="Onemembership" data-moreinfo="ftaps32883-law1a-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps33652-law1b-eu-p:8443/__health', '_blank');">
+            <div data-id="barrier-app-app2-eu" data-title="barrier-app-app2-eu" data-view="Onemembership" data-moreinfo="ftaps33652-law1b-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="3" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps32884-lae1a-us-p:8443/__health', '_blank');">
+            <div data-id="barrier-app-app1-us" data-title="barrier-app-app1-us" data-view="Onemembership" data-moreinfo="ftaps32884-lae1a-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="3" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps32885-lae1c-us-p:8443/__health', '_blank');">
+            <div data-id="barrier-app-app2-us" data-title="barrier-app-app2-us" data-view="Onemembership" data-moreinfo="ftaps32885-lae1c-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="3" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps48342-law1a-eu-p:8443/__health', '_blank');">
+            <div data-id="licence-data-svc-app1-eu" data-title="licence-data-svc-app1-eu" data-view="Onemembership" data-moreinfo="ftaps48342-law1a-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="3" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps48343-law1b-eu-p:8443/__health', '_blank');">
+            <div data-id="licence-data-svc-app2-eu" data-title="licence-data-svc-app2-eu" data-view="Onemembership" data-moreinfo="ftaps48343-law1b-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="3" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps48348-lae1a-us-p:8443/__health', '_blank');">
+            <div data-id="licence-data-svc-app1-us" data-title="licence-data-svc-app1-us" data-view="Onemembership" data-moreinfo="ftaps48348-lae1a-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="3" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps48349-lae1c-us-p:8443/__health', '_blank');">
+            <div data-id="licence-data-svc-app2-us" data-title="licence-data-svc-app2-us" data-view="Onemembership" data-moreinfo="ftaps48349-lae1c-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="4" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64205-law1a-eu-p:8443/__health', '_blank');">
+            <div data-id="offer-api-app1-eu" data-title="offer-api-app1-eu" data-view="Onemembership" data-moreinfo="ftaps64205-law1a-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="4" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64206-law1b-eu-p:8443/__health', '_blank');">
+            <div data-id="offer-api-app2-eu" data-title="offer-api-app2-eu" data-view="Onemembership" data-moreinfo="ftaps64206-law1b-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="4" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64201-lae1a-us-p:8443/__health', '_blank');">
+            <div data-id="offer-api-app1-us" data-title="offer-api-app1-us" data-view="Onemembership" data-moreinfo="ftaps64201-lae1a-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="4" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64202-lae1c-us-p:8443/__health', '_blank');">
+            <div data-id="offer-api-app2-us" data-title="offer-api-app2-us" data-view="Onemembership" data-moreinfo="ftaps64202-lae1c-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="4" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64552-law1a-eu-p:8443/__health', '_blank');">
+            <div data-id="subscription-api-app3-eu" data-title="subscription-api-app3-eu" data-view="Onemembership" data-moreinfo="ftaps64552-law1a-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="4" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64554-law1b-eu-p:8443/__health', '_blank');">
+            <div data-id="subscription-api-app4-eu" data-title="subscription-api-app4-eu" data-view="Onemembership" data-moreinfo="ftaps64554-law1b-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="4" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64609-lae1a-us-p:8443/__health', '_blank');">
+            <div data-id="subscription-api-app3-us" data-title="subscription-api-app3-us" data-view="Onemembership" data-moreinfo="ftaps64609-lae1a-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="5" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps64610-lae1c-us-p:8443/__health', '_blank');">
+            <div data-id="subscription-api-app4-us" data-title="subscription-api-app4-us" data-view="Onemembership" data-moreinfo="ftaps64610-lae1c-us-p" data-tier="Gold"></div>
+        </li>
+    </ul>
+    <ul>
+        <h4>Nagios Checks</h4>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65099-law1c-eu-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon65099-law1c-eu-p" data-title="Cassandra-EU Membership" data-view="Nagios" data-moreinfo="ftmon65099-law1c-eu-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65088-lae1c-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon65088-lae1c-us-p" data-title="Cassandra-US Membership" data-view="Nagios" data-moreinfo="ftmon65088-lae1c-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon05279-lviw-uk-p/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon05279-lviw-uk-p" data-title="Track UK" data-view="Nagios" data-moreinfo="ftmon05279-lviw-uk-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon05323-lvnj-us-p/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon05323-lvnj-us-p" data-title="Track US" data-view="Nagios" data-moreinfo="ftmon05323-lvnj-us-p" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65099-law1c-eu-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon65099-law1c-eu-p-nagios" data-title="Cassandra-euwest1" data-view="Nagios" data-moreinfo="ftmon65099-law1c-eu-p.osb.ft.com" data-tier="Gold"></div>
+        </li>
+        <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon65088-lae1c-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon65088-lae1c-us-p-nagios" data-title="Cassandra-useast1" data-view="Nagios" data-moreinfo="ftmon65088-lae1c-us-p.osb.ft.com" data-tier="Gold"></div>
+        </li>
+    </ul>
 </div>
