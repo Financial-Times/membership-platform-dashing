@@ -296,3 +296,25 @@ SCHEDULER.every '45s', first_in: 0 do |job|
   getStatusFromNagios('ftmon06104-lviw-uk-p-nagios', 'http://ftmon06104-lviw-uk-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
 end
 
+SCHEDULER.every '50s', first_in: 0 do |job|
+  performCheckAndSendEventToWidgets('cont-acc-tkn-svc-eu', 'cont-acc-tkn-svc-at-eu-prod.herokuapp.com', '/tests', true)
+  getHealth('sf-als-sync-svc-app1-eu', 'ftaps60772-law1a-eu-p', '/__health', 8443, true)
+  getStatusFromHealthCheck('email-platform-health', 'http://healthcheck.ft.com', '/service/a0a8a8ea4059556e65101fdf6c26624c', s3oCredentials)
+  getStatusFromNagios('ftmon32360-lac1a-eu-p', 'http://ftmon32360-lac1a-eu-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon32350-law1a-eu-p', 'http://ftmon32350-law1a-eu-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon32370-lae1a-us-p', 'http://ftmon32370-lae1a-us-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon05279-lviw-uk-p', 'http://ftmon05279-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon05323-lvnj-us-p', 'http://ftmon05323-lvnj-us-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon40924-law1a-eu-p', 'http://ftmon40924-law1a-eu-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon41046-lae1a-us-p', 'http://ftmon41046-lae1a-us-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon64075-law1a-eu-p', 'http://ftmon64075-law1a-eu-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon64079-lae1a-us-p', 'http://ftmon64079-lae1a-us-p', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon32370-lae1a-us-p-nagios', 'http://ftmon32370-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon32360-lac1a-eu-p-nagios', 'http://ftmon32360-lac1a-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon32350-law1a-eu-p-nagios', 'http://ftmon32350-law1a-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon03740-lvnj-us-p-nagios', 'http://ftmon03740-lvnj-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon30057-law1b-eu-t-nagios', 'http://ftmon30057-law1b-eu-t.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon03831-lvpr-uk-int-nagios', 'http://ftmon03831-lvpr-uk-int.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon61265-lae1a-us-p-nagios', 'http://ftmon61265-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('ftmon61266-law1b-eu-p-nagios', 'http://ftmon61266-law1b-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+end
