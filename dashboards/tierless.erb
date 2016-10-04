@@ -1,0 +1,80 @@
+<% content_for :title do %>One Membership Dashboard - Tierless<% end %>
+<script type="text/javascript">
+    $(function() {
+        Dashing.widget_base_dimensions = [260, 260]
+        Dashing.widget_margins = [1, 1]
+
+    });
+</script>
+<div id="tier" class="tierless">TIERLESS</div>
+<div class="gridster">
+    <ul>
+        <h4>Acceptance Tests</h4>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://cont-acc-tkn-svc-at-eu-prod.herokuapp.com/tests', '_blank');">
+            <div data-id="cont-acc-tkn-svc-eu" data-view="Onemembership" data-title="Generate Access Tokens (Europe)" data-text="Impact: Users are not given content access tokens" data-tier="Tierless"></div>
+        </li>
+    </ul>
+    <ul>
+        <h4>Health Checks</h4>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://ftaps60772-law1a-eu-p:8443/__health', '_blank');">
+            <div data-id="sf-als-sync-svc-app1-eu" data-title="sf-als-sync-svc-app1-eu" data-view="Onemembership" data-moreinfo="ftaps60772-law1a-eu-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://healthcheck.ft.com/service/a0a8a8ea4059556e65101fdf6c26624c', '_blank');">
+            <div data-id="email-platform-health" data-title="Email Platform" data-view="Onemembership" data-moreinfo="email-webservices.ft.com" data-tier="Tierless"></div>
+        </li>
+    </ul>
+    <ul>
+        <h4>Nagios Checks</h4>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon32360-lac1a-eu-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon32360-lac1a-eu-p" data-title="OM-Apps-nagios-(EU-Central) Membership" data-view="Nagios" data-moreinfo="ftmon32360-lac1a-eu-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon32350-law1a-eu-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon32350-law1a-eu-p" data-title="OM-Apps-nagios-(EU-West) Membership" data-view="Nagios" data-moreinfo="ftmon32350-law1a-eu-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon32370-lae1a-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon32370-lae1a-us-p" data-title="OM-Apps-nagios-(US-East) Membership" data-view="Nagios" data-moreinfo="ftmon32370-lae1a-us-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon05279-lviw-uk-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon05279-lviw-uk-p" data-title="Registration-nagios-(UK) Membership" data-view="Nagios" data-moreinfo="ftmon05279-lviw-uk-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon05323-lvnj-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon05323-lvnj-us-p" data-title="Registration-nagios-(US) Membership" data-view="Nagios" data-moreinfo="ftmon05323-lvnj-us-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon40924-law1a-eu-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon40924-law1a-eu-p" data-title="nagios-euwest1-prod-services-membership Membership" data-view="Nagios" data-moreinfo="ftmon40924-law1a-eu-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon41046-lae1a-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon41046-lae1a-us-p" data-title="nagios-useast1-prod-services-membership Membership" data-view="Nagios" data-moreinfo="ftmon41046-lae1a-us-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon64075-law1a-eu-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon64075-law1a-eu-p" data-title="uk-prod-omapps-membership" data-view="Nagios" data-moreinfo="ftmon64075-law1a-eu-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon64079-lae1a-us-p/nagios/cgi-bin/status.cgi?host=all&sorttype=2&sortoption=3', '_blank');">
+            <div data-id="ftmon64079-lae1a-us-p" data-title="us-prod-omapps-membership" data-view="Nagios" data-moreinfo="ftmon64079-lae1a-us-p" data-tier="Tierless"></div>
+        </li>
+        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon32370-lae1a-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon32370-lae1a-us-p-nagios" data-title="PROD US-East-1 APPS" data-view="Nagios" data-moreinfo="ftmon32370-lae1a-us-p.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+        <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon32360-lac1a-eu-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon32360-lac1a-eu-p-nagios" data-title="PROD EU-Central-1 APPS" data-view="Nagios" data-moreinfo="ftmon32360-lac1a-eu-p.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+        <li data-row="2" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon32350-law1a-eu-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon32350-law1a-eu-p-nagios" data-title="PROD EU-West-1 APPS" data-view="Nagios" data-moreinfo="ftmon32350-law1a-eu-p.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+        <li data-row="2" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon03740-lvnj-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon03740-lvnj-us-p-nagios" data-title="PROD NJ C/K/Z" data-view="Nagios" data-moreinfo="ftmon03740-lvnj-us-p.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+        <li data-row="2" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon30057-law1b-eu-t.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon30057-law1b-eu-t-nagios" data-title="TEST EU-West-1 APPS" data-view="Nagios" data-moreinfo="ftmon30057-law1b-eu-t.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+        <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon03831-lvpr-uk-int.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon03831-lvpr-uk-int-nagios" data-title="INT PR C/K/Z" data-view="Nagios" data-moreinfo="ftmon03831-lvpr-uk-int.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+        <li data-row="3" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon61265-lae1a-us-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon61265-lae1a-us-p-nagios" data-title="AMP Access Service US" data-view="Nagios" data-moreinfo="ftmon61265-lae1a-us-p.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+        <li data-row="3" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('http://ftmon61266-law1b-eu-p.osb.ft.com/nagios/cgi-bin/status.cgi', '_blank');">
+            <div data-id="ftmon61266-law1b-eu-p-nagios" data-title="AMP Access Service EU" data-view="Nagios" data-moreinfo="ftmon61266-law1b-eu-p.osb.ft.com" data-tier="Tierless"></div>
+        </li>
+    </ul>
+</div>

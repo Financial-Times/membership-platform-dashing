@@ -49,6 +49,21 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
     color: white;
   }
 
+  .silver {
+    background: silver;
+    color: white;
+  }
+
+  .bronze {
+    background: #CD7F32;
+    color: lightyellow;
+  }
+
+  .tierless {
+    background: darkslategrey;
+    color: lightsteelblue;
+  }
+
   &.large h3 {
     font-size: 65px;
   }
