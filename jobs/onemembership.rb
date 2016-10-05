@@ -230,6 +230,7 @@ end
 
 SCHEDULER.every '45s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('api-authz-svc-tests-eu', 'api-authz-svc-at-eu-prod.herokuapp.com', '/tests', true)
+  performCheckAndSendEventToWidgets('api-authz-svc-tests-us', 'api-authz-svc-at-us-prod.herokuapp.com', '/tests', true)
   performCheckAndSendEventToWidgets('gift-article-svc-tests-eu', 'gift-article-svc-at-eu-prod.herokuapp.com', '/tests', true)
   performCheckAndSendEventToWidgets('session-api-tests-eu', 'ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com', '/tests/critical-validate', false)
   getHealth('b2b-signup-app1-eu', 'ftaps40489-law1a-eu-p', '/__health', 8080, false)
