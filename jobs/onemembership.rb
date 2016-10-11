@@ -151,7 +151,7 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('login-app-tests-us', 'login-app-at-us-prod.herokuapp.com', '/tests', true)
   performCheckAndSendEventToWidgets('forgot-password-tests-eu', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/reset-password-critical', false)
   performCheckAndSendEventToWidgets('fastly-tests-eu', 'api-gateway-router-at-eu-prod.herokuapp.com', '/tests', true)
-  # performCheckAndSendEventToWidgets('fastly-tests-us', 'api-gateway-router-at-us-prod.herokuapp.com', '/tests', true)
+  performCheckAndSendEventToWidgets('fastly-tests-us', 'api-gateway-router-at-us-prod.herokuapp.com', '/tests', true)
   getStatusFromHealthCheck('loginapi-eu', 'http://healthcheck.ft.com', '/service/399714ea73e0015e425666917931e6a4', s3oCredentials)
   getStatusFromHealthCheck('loginapi-us', 'http://healthcheck.ft.com', '/service/ad9e37cf76f09190d5e39a9fd71a874f', s3oCredentials)
   getStatusFromHealthCheck('loginapp-eu', 'http://healthcheck.ft.com', '/service/28c1512a87c1bb807ed55a6ecd7798b1', s3oCredentials)
