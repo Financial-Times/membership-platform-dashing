@@ -22,21 +22,24 @@
             <div data-id="access-service-tests-eu" data-view="Onemembership" data-title="Authorise content access (Europe)" data-tier="Platinum" data-text="Impact: Paywall not functioning as expected.  Content may be free.  Users may not have access."></div>
         </li>
         <li data-row="1" data-col="5" data-sizex="1" data-sizey="1" onclick="window.open('https://usr-product-svc-at-eu-prod.herokuapp.com/tests/get-products-critical', '_blank');">
-            <div data-id="user-products" data-view="Onemembership" data-title="Get User Products" data-text="Impact: User subscription status not retrievable. May have access issues." data-tier="Platinum"></div>
+            <div data-id="user-products-eu" data-view="Onemembership" data-title="Get User Products (Europe)" data-text="Impact: User subscription status not retrievable. May have access issues." data-tier="Platinum"></div>
         </li>
-        <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-eu-prod.herokuapp.com/tests', '_blank');">
+        <li data-row="1" data-col="6" data-sizex="1" data-sizey="1" onclick="window.open('https://usr-product-svc-at-us-prod.herokuapp.com/tests/get-products-critical', '_blank');">
+            <div data-id="user-products-us" data-view="Onemembership" data-title="Get User Products (USA)" data-text="Impact: User subscription status not retrievable. May have access issues." data-tier="Platinum"></div>
+        </li>
+        <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-eu-prod.herokuapp.com/tests', '_blank');">
             <div data-id="login-app-tests-eu" data-view="Onemembership" data-title="Log in users to ft.com APP (Europe)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
         </li>
-        <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-us-prod.herokuapp.com/tests', '_blank');">
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('https://login-app-at-us-prod.herokuapp.com/tests', '_blank');">
             <div data-id="login-app-tests-us" data-view="Onemembership" data-title="Log in users to ft.com APP (USA)" data-text="Impact: Users can't login" data-tier="Platinum"></div>
         </li>
-        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/reset-password-critical', '_blank');">
+        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('http://ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com/tests/reset-password-critical', '_blank');">
             <div data-id="forgot-password-tests-eu" data-view="Onemembership" data-title="Retrieve Forgotten Passwords (Europe)" data-tier="Platinum" data-text="Impact: Users are unable to change passwords."></div>
         </li>
-        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" onclick="window.open('https://api-gateway-router-at-eu-prod.herokuapp.com/tests', '_blank');">
+        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('https://api-gateway-router-at-eu-prod.herokuapp.com/tests', '_blank');">
             <div data-id="fastly-tests-eu" data-view="Onemembership" data-title="Fastly Acceptance Tests (Europe)" data-tier="Platinum" data-text="Impact: Requests via fastly will be unresponsive."></div>
         </li>
-        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1" onclick="window.open('https://api-gateway-router-at-us-prod.herokuapp.com/tests', '_blank');">
+        <li data-row="2" data-col="4" data-sizex="1" data-sizey="1" onclick="window.open('https://api-gateway-router-at-us-prod.herokuapp.com/tests', '_blank');">
             <div data-id="fastly-tests-us" data-view="Onemembership" data-title="Fastly Acceptance Tests (USA)" data-tier="Platinum" data-text="Impact: Requests via fastly will be unresponsive."></div>
         </li>
     </ul>
