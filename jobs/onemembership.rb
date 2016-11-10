@@ -140,6 +140,50 @@ def getTestFailures(response)
   failures
 end
 
+def getGatewayFailoverStatus(urlHost, urlPath, port, tlsEnabled)
+  http = Net::HTTP.new(urlHost, port)
+  if tlsEnabled
+    http.use_ssl = true
+  end
+
+  request = Net::HTTP::Get.new(urlPath)
+
+  response = ''
+
+  if tlsEnabled
+    response = Net::HTTP.start(
+        urlHost, port,
+        :use_ssl => true,
+        :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |https|
+      https.request(request)
+    end
+  else
+    response = http.request(request)
+  end
+
+  jsonResponse = JSON.parse(response.body)
+
+  services = jsonResponse['services']
+  index = 0;
+  services.each do |service|
+    serviceId = service.keys.first
+    gtg = service[serviceId]['gtg']
+    hostname = service[serviceId]['host']
+    getServiceFailoverStatus(serviceId, gtg, hostname)
+  end
+end
+
+def getServiceFailoverStatus(widgetId, stat, hostname)
+  availability = ''
+  if stat == 'ok'
+    availability = 'available'
+  else
+    availability = 'unavailable'
+  end
+
+  send_event(widgetId, { identifier: widgetId, host: hostname, value: stat, status: availability })
+end
+
 SCHEDULER.every '30s', first_in: 0 do |job|
 
   performCheckAndSendEventToWidgets('login-tests-eu', 'login-api-at-eu-prod.herokuapp.com', '/tests/critical', true)
