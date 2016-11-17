@@ -166,6 +166,7 @@ SCHEDULER.every '30s', first_in: 0 do |job|
 
   performCheckAndSendEventToWidgets('user-profile', 'user-profile-svc-at-lb-eu-west-1.memb.ft.com', '/tests/get-profile-critical', true)
   performCheckAndSendEventToWidgets('user-profile-us', 'user-profile-svc-at-lb-us-east-1.memb.ft.com', '/tests/get-profile-critical', true)
+  performCheckAndSendEventToWidgets('customer-sso', 'ftmon06054-lviw-uk-p', '/tests', false)
   getStatusFromHealthCheck('user-profile-eu', 'http://healthcheck.ft.com', '/service/7b02faa0e45544c26c7f4dddcdafa251', s3oCredentials)
   getStatusFromHealthCheck('user-profile-us', 'http://healthcheck.ft.com', '/service/41ddaf5f7110db4f05cf1104d21c0d78', s3oCredentials)
   getStatusFromHealthCheck('sign-up-app-us', 'http://healthcheck.ft.com', '/service/f3b5a9c8792abcb2ec22000768719f4f', s3oCredentials)
@@ -205,8 +206,8 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   getStatusFromNagios('ftmon05323-lvnj-us-p', 'http://ftmon05323-lvnj-us-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon65099-law1c-eu-p-nagios', 'http://ftmon65099-law1c-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon65088-lae1c-us-p-nagios', 'http://ftmon65088-lae1c-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
-  getStatusFromNagios('10.171.47.24-nagios', 'http://10.171.47.24', '/nagios/cgi-bin/status.cgi')
-  getStatusFromNagios('10.170.54.212-nagios', 'http://10.170.54.212', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('10.171.46.231-nagios', 'http://10.171.46.231', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('10.170.55.95-nagios', 'http://10.170.55.95', '/nagios/cgi-bin/status.cgi')
 end
 
 SCHEDULER.every '15s', first_in: 0 do |job|
