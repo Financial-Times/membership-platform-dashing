@@ -205,10 +205,26 @@ def getServiceFailoverStatus(widgetId, eu_status, us_status)
   euHost = euJson['host']
   usHost = usJson['host']
 
+  eu_host_region = getRegion(euHost)
+  us_host_region = getRegion(usHost)
+
   service_name = getServiceName(euHost)
+
+  message_value = ''
 
   if euStatus == 'OK' && usStatus == 'OK'
     stat = 'OK'
+
+    if eu_host_region == 'EU' && us_host_region == 'US'
+      message_value = 'Normal'
+    elsif eu_host_region == 'US' && us_host_region == 'US'
+      message_value = 'US Failover'
+    elsif eu_host_region == 'EU' && us_host_region == 'EU'
+      message_value = 'EU Failover'
+    end
+  else
+    message_value = "#{eu_host_region} connects to #{euHost} status is #{euStatus} <br/>" +
+        "#{us_host_region} connects to #{usHost} status is #{usStatus} "
   end
 
   availability = ''
@@ -222,8 +238,7 @@ def getServiceFailoverStatus(widgetId, eu_status, us_status)
   end
 
   send_event(widgetId, { :identifier => widgetId, :name => service_name , :value => myValue, :status => availability,
-                         :usHost => usHost, :usStat => usStatus, :usRegion => 'US',
-                         :euHost => euHost, :euStat => euStatus, :euRegion => 'EU'})
+                         :message => message_value})
 end
 
 def getRegionStatus(regionName, hostname, stat)
@@ -244,9 +259,9 @@ end
 def getRegion(host)
   region = ''
   if host =~ /-eu-/i
-    region = 'eu';
+    region = 'EU';
   else
-    region = 'us';
+    region = 'US';
   end
   region
 end
