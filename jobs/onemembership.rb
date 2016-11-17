@@ -223,7 +223,7 @@ def getServiceFailoverStatus(widgetId, eu_status, us_status)
       message_value = 'EU Failover'
     end
   else
-    message_value = "#{eu_host_region} connects to #{euHost} status is #{euStatus} <br/>" +
+    message_value = "#{eu_host_region} connects to #{euHost} status is #{euStatus} " +
         "#{us_host_region} connects to #{usHost} status is #{usStatus} "
   end
 
