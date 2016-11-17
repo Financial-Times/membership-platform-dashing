@@ -1,0 +1,121 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-text styles
+// ----------------------------------------------------------------------------
+.widget-failover {
+
+  background-color: grey;
+
+  .title {
+    color: $title-color;
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+    font-size: 12px;
+  }
+
+  .capability-name {
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  .message {
+    font-size: 20px;
+  }
+
+  .eu-section {
+    bottom: 20px;
+    font-size: 12px;
+  }
+
+  .us-section {
+    bottom: 10px;
+    font-size: 12px;
+  }
+
+  .region {
+    font-weight: bold;
+  }
+
+  .host {
+    font-weight: bold;
+  }
+
+  .status {
+    font-weight: bold;
+  }
+
+  .updated-at {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .tier {
+    font-style: normal;
+    font-size: 15px;
+    font-weight: bolder;
+    top: 10px;
+    position: absolute;
+    width: 90%;
+    word-wrap: break-word;
+  }
+
+  .platinum {
+    background: #E5E4E2;
+    color: black;
+  }
+
+  .gold {
+    background: gold;
+    color: white;
+  }
+
+  .silver {
+    background: silver;
+    color: white;
+  }
+
+  .bronze {
+    background: #CD7F32;
+    color: lightyellow;
+  }
+
+  .tierless {
+    background: darkslategrey;
+    color: lightsteelblue;
+  }
+
+  &.large h3 {
+    font-size: 65px;
+  }
+
+  .ok-count {
+    color: white;
+    font-size: 15px;
+  }
+
+  .warning-count {
+    color: yellow;
+    font-size: 15px;
+  }
+
+  .critical-count {
+    color: red;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+}
+
+.status-available {
+  background-color: green;
+}
+
+.status-unavailable {
+  background-color: red;
+}
