@@ -195,12 +195,18 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   getHealth('subscription-api-app4-eu', 'ftaps64554-law1b-eu-p', '/__health', 8443, true)
   getHealth('subscription-api-app3-us', 'ftaps64609-lae1a-us-p', '/__health', 8443, true)
   getHealth('subscription-api-app4-us', 'ftaps64610-lae1c-us-p', '/__health', 8443, true)
+  getHealth('customer-sso-app1-eu', '10.170.38.244', '/__health', 8443, true)
+  getHealth('customer-sso-app2-eu', '10.170.45.213', '/__health', 8443, true)
+  getHealth('customer-sso-app1-us', '10.171.36.204', '/__health', 8443, true)
+  getHealth('customer-sso-app2-us', '10.171.46.111', '/__health', 8443, true)
   getStatusFromNagios('ftmon65099-law1c-eu-p', 'http://ftmon65099-law1c-eu-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon65088-lae1c-us-p', 'http://ftmon65088-lae1c-us-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon05279-lviw-uk-p', 'http://ftmon05279-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon05323-lvnj-us-p', 'http://ftmon05323-lvnj-us-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon65099-law1c-eu-p-nagios', 'http://ftmon65099-law1c-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon65088-lae1c-us-p-nagios', 'http://ftmon65088-lae1c-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('10.171.47.24-nagios', 'http://10.171.47.24', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('10.170.54.212-nagios', 'http://10.170.54.212', '/nagios/cgi-bin/status.cgi')
 end
 
 SCHEDULER.every '15s', first_in: 0 do |job|
