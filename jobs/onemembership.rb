@@ -204,6 +204,9 @@ def getServiceFailoverStatus(widgetId, eu_status, us_status)
   usStatus = usJson['status']
   euHost = euJson['host']
   usHost = usJson['host']
+
+  service_name = getServiceName(euHost)
+
   if euStatus == 'OK' && usStatus == 'OK'
     stat = 'OK'
   end
@@ -218,13 +221,24 @@ def getServiceFailoverStatus(widgetId, eu_status, us_status)
     myValue = 'danger'
   end
 
-  send_event(widgetId, { :identifier => widgetId, :value => myValue, :status => availability,
+  send_event(widgetId, { :identifier => widgetId, :name => service_name , :value => myValue, :status => availability,
                          :usHost => usHost, :usStat => usStatus, :usRegion => 'US',
                          :euHost => euHost, :euStat => euStatus, :euRegion => 'EU'})
 end
 
 def getRegionStatus(regionName, hostname, stat)
   region_status = { :region => regionName, :host => hostname, :status => stat}
+end
+
+def getServiceName(hostname)
+  service_name = ''
+
+  if hostname.include? 'herokuapp'
+    service_name = hostname.split(/-eu-prod./).first;
+  else
+    service_name = hostname.split(/-gw/).first;
+  end
+  service_name
 end
 
 def getRegion(host)
