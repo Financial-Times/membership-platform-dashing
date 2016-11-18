@@ -140,6 +140,132 @@ def getTestFailures(response)
   failures
 end
 
+def getGatewayFailoverStatus(usHost, euHost, urlPath, port, tlsEnabled)
+  eu_response = connect(euHost, urlPath, port, tlsEnabled)
+  us_response = connect(usHost, urlPath, port, tlsEnabled)
+
+
+  eu_response.each do |eu_service|
+    eu_status = {}
+    us_status ={}
+
+    eu_service_id = eu_service['expectedRoute']
+    eu_routing_response = eu_service['routingResponse']
+    eu_stat = eu_routing_response['status']
+    eu_hostname = eu_routing_response['host']
+    eu_status = getRegionStatus('EU', eu_hostname, eu_stat)
+
+    us_response.each do |us_service|
+      us_service_id = us_service['expectedRoute']
+      if eu_service_id == us_service_id
+        us_routing_response = us_service['routingResponse']
+        us_stat = us_routing_response['status']
+        us_hostname = us_routing_response['host']
+        us_status = getRegionStatus('US', us_hostname, us_stat)
+        break
+      end
+    end
+
+    getServiceFailoverStatus(eu_service_id, eu_status, us_status)
+  end
+
+
+end
+
+def connect(urlHost, urlPath, port, tlsEnabled)
+  http = Net::HTTP.new(urlHost, port)
+  if tlsEnabled
+    http.use_ssl = true
+  end
+
+  request = Net::HTTP::Get.new(urlPath)
+
+  response = ''
+
+  if tlsEnabled
+    response = Net::HTTP.start(
+        urlHost, port,
+        :use_ssl => true,
+        :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |https|
+      https.request(request)
+    end
+  else
+    response = http.request(request)
+  end
+
+  json_response = JSON.parse(response.body)
+end
+
+def getServiceFailoverStatus(widgetId, eu_status, us_status)
+  stat = 'NOT OK'
+  euJson = JSON.parse(eu_status.to_json)
+  usJson = JSON.parse(us_status.to_json)
+  euStatus = euJson['status']
+  usStatus = usJson['status']
+  euHost = euJson['host']
+  usHost = usJson['host']
+
+  eu_host_region = getRegion(euHost)
+  us_host_region = getRegion(usHost)
+
+  service_name = getServiceName(euHost)
+
+  message_value = ''
+
+  if euStatus == 'OK' && usStatus == 'OK'
+    stat = 'OK'
+
+    if eu_host_region == 'EU' && us_host_region == 'US'
+      message_value = 'Normal'
+    elsif eu_host_region == 'US' && us_host_region == 'US'
+      message_value = 'US Failover'
+    elsif eu_host_region == 'EU' && us_host_region == 'EU'
+      message_value = 'EU Failover'
+    end
+  else
+    message_value = "#{eu_host_region} connects to #{euHost} status is #{euStatus} " +
+        "#{us_host_region} connects to #{usHost} status is #{usStatus} "
+  end
+
+  availability = ''
+  myValue = ''
+  if stat == 'OK'
+    availability = 'available'
+    myValue = 'ok'
+  else
+    availability = 'unavailable'
+    myValue = 'danger'
+  end
+
+  send_event(widgetId, { :identifier => widgetId, :name => service_name , :value => myValue, :status => availability,
+                         :message => message_value})
+end
+
+def getRegionStatus(regionName, hostname, stat)
+  region_status = { :region => regionName, :host => hostname, :status => stat}
+end
+
+def getServiceName(hostname)
+  service_name = ''
+
+  if hostname.include? 'herokuapp'
+    service_name = hostname.split(/-eu-prod./).first;
+  else
+    service_name = hostname.split(/-gw/).first;
+  end
+  service_name
+end
+
+def getRegion(host)
+  region = ''
+  if host =~ /-eu-/i
+    region = 'EU';
+  else
+    region = 'US';
+  end
+  region
+end
+
 SCHEDULER.every '30s', first_in: 0 do |job|
 
   performCheckAndSendEventToWidgets('login-tests-eu', 'login-api-at-eu-prod.herokuapp.com', '/tests/critical', true)
@@ -329,4 +455,8 @@ SCHEDULER.every '50s', first_in: 0 do |job|
   getStatusFromNagios('ftmon03831-lvpr-uk-int-nagios', 'http://ftmon03831-lvpr-uk-int.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon61265-lae1a-us-p-nagios', 'http://ftmon61265-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon61266-law1b-eu-p-nagios', 'http://ftmon61266-law1b-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
+end
+
+SCHEDULER.every '50s', first_in: 0 do |job|
+  getGatewayFailoverStatus('api-gateway-router-at-us-prod.herokuapp.com', 'api-gateway-router-at-eu-prod.herokuapp.com', '/failover-status', 443, true)
 end

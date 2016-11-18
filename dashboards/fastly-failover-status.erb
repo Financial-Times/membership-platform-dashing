@@ -1,0 +1,61 @@
+<% content_for :title do %>One Membership Dashboard - Failover<% end %>
+<script type="text/javascript">
+    $(function() {
+        Dashing.widget_base_dimensions = [290, 290]
+        Dashing.widget_margins = [1, 1]
+
+    });
+</script>
+<div id="tier" class="tierless">FASTLY FAILOVER STATUS PER SERVICE ROUTE</div>
+<div class="gridster">
+    <ul>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="sessions" data-view="Failover" data-tier="api.ft.com/sessions/*"></div>
+        </li>
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+            <div data-id="user-products" data-view="Failover" data-tier="api.ft.com/users/.*/products"></div>
+        </li>
+        <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+            <div data-id="user-profiles" data-view="Failover" data-tier="api.ft.com/users/profile"></div>
+        </li>
+        <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+            <div data-id="ref-data-demographics" data-view="Failover" data-tier="api.ft.com/ref-data/demographics/.*"></div>
+        </li>
+        <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
+            <div data-id="user-subs-status" data-view="Failover" data-tier="api.ft.com/(users|ips)/.*/subs-status"></div>
+        </li>
+        <li data-row="1" data-col="6" data-sizex="1" data-sizey="1">
+            <div data-id="authorize" data-view="Failover" data-tier="api.ft.com/authorize"></div>
+        </li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="acquisition-context-svc" data-view="Failover" data-tier="api.ft.com/acquisition-contexts/.*"></div>
+        </li>
+        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+            <div data-id="acc-licence-svc" data-view="Failover" data-tier="api.ft.com/licences/.*"></div>
+        </li>
+        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+            <div data-id="login-api" data-view="Failover" data-tier="api.ft.com/login"></div>
+        </li>
+        <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+            <div data-id="redeemable-token" data-view="Failover" data-tier="api.ft.com/redeemable-tokens"></div>
+        </li>
+        <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+            <div data-id="sso" data-view="Failover" data-tier="api.ft.com/sso"></div>
+        </li>
+        <li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
+            <div data-id="sso-internal" data-view="Failover" data-tier="api.ft.com/sso-internal"></div>
+        </li>
+        <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="licence-data-svc" data-view="Failover" data-tier="api.ft.com/licence-seat-holders/*"></div>
+        </li>
+        <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+            <div data-id="user-cred-svc" data-view="Failover" data-tier="api.ft.com/users/.*/credentials/change-password"></div>
+        </li>
+        <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+            <div data-id="subs-transition-svc" data-view="Failover" data-tier="api.ft.com/transitions"></div>
+        </li>
+        <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+            <div data-id="access-service" data-view="Failover" data-tier="api.ft.com/access/*"></div>
+        </li>
+    </ul>
+</div>
