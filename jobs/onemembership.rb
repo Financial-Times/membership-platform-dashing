@@ -436,6 +436,7 @@ end
 
 SCHEDULER.every '50s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('cont-acc-tkn-svc-eu', 'cont-acc-tkn-svc-at-eu-prod.herokuapp.com', '/tests', true)
+  performCheckAndSendEventToWidgets('cont-acc-tkn-svc-us', 'cont-acc-tkn-svc-at-us-prod.herokuapp.com', '/tests', true)
   getHealth('sf-als-sync-svc-app1-eu', 'ftaps60772-law1a-eu-p', '/__health', 8443, true)
   getStatusFromHealthCheck('email-platform-health', 'http://healthcheck.ft.com', '/service/a0a8a8ea4059556e65101fdf6c26624c', s3oCredentials)
   getStatusFromNagios('ftmon32360-lac1a-eu-p', 'http://ftmon32360-lac1a-eu-p', '/nagios/cgi-bin/status.cgi')
