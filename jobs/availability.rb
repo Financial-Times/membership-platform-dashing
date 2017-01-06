@@ -105,6 +105,7 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('get-user-products', 'usr-product-svc-at-eu-prod.herokuapp.com', '/tests/get-products-critical', false)
   performCheckAndSendEventToWidgets('authorise-content', 'ft-memb-access-service-at-elb-eu-287296531.eu-west-1.elb.amazonaws.com', '/tests/authorise-content-critical', false)
   performCheckAndSendEventToWidgets('retrieve-user-profile', 'user-profile-svc-at-lb-eu-west-1.memb.ft.com', '/tests/get-profile-critical', true)
+  performCheckAndSendEventToWidgets('customer-sso', 'customer-sso-at-eu-prod.herokuapp.com', '/tests', true)
   getUptimeMetricsFromPingdom('1965634', apiKey, user, password)
   getUptimeMetricsFromPingdom('1974827', apiKey, user, password)
   getUptimeMetricsFromPingdom('1974865', apiKey, user, password)
@@ -112,6 +113,7 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   getUptimeMetricsFromPingdom('2147820', apiKey, user, password)
   getUptimeMetricsFromPingdom('2225403', apiKey, user, password)
   getUptimeMetricsFromPingdom('2005882', apiKey, user, password)
+  getUptimeMetricsFromPingdom('2433995', apiKey, user, password)
 
 end
 
