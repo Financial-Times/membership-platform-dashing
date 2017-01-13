@@ -421,7 +421,6 @@ SCHEDULER.every '45s', first_in: 0 do |job|
   getStatusFromNagios('ftmon02464-lviw-uk-p', 'http://ftmon02464-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon05487-lviw-uk-p', 'http://ftmon05487-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon06054-lviw-uk-p', 'http://ftmon06054-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
-  getStatusFromNagios('ftmon04625-lviw-uk-p', 'http://ftmon04625-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon06104-lviw-uk-p', 'http://ftmon06104-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon64118-law1a-eu-p', 'http://ftmon64118-law1a-eu-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon64119-law1a-eu-p', 'http://ftmon64119-law1a-eu-p', '/nagios/cgi-bin/status.cgi')
@@ -430,7 +429,6 @@ SCHEDULER.every '45s', first_in: 0 do |job|
   getStatusFromNagios('ftmon33937-lae1a-us-p-nagios', 'http://ftmon33937-lae1a-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon05487-lviw-uk-p-nagios', 'http://ftmon05487-lviw-uk-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon33956-law1a-eu-p-nagios', 'http://ftmon33956-law1a-eu-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
-  getStatusFromNagios('ftmon04625-lviw-uk-p-nagios', 'http://ftmon04625-lviw-uk-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon06054-lviw-uk-p-nagios', 'http://ftmon06054-lviw-uk-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon06104-lviw-uk-p-nagios', 'http://ftmon06104-lviw-uk-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
 end
