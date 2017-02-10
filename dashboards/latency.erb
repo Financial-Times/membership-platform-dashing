@@ -1,0 +1,31 @@
+<% content_for :title do %>Membership Dashboard - Latency<% end %>
+<script type="text/javascript">
+    $(function() {
+        Dashing.widget_base_dimensions = [290, 290]
+        Dashing.widget_margins = [1, 1]
+
+    });
+</script>
+<div id="tier" class="tierless">Membership request latency</div>
+<div class="gridster">
+    <ul>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="eu-fl-99pc-lat" data-view="Latency" data-tier="eu fastly latency"></div>
+        </li>
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+            <div data-id="eu-gw-99pc-lat" data-view="Latency" data-tier="eu gateway latency"></div>
+        </li>
+        <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+            <div data-id="eu-lb-99pc-lat" data-view="Latency" data-tier="eu load balancer latency"></div>
+        </li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="us-fl-99pc-lat" data-view="Latency" data-tier="us fastly latency"></div>
+        </li>
+        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+            <div data-id="us-gw-99pc-lat" data-view="Latency" data-tier="us gateway latency"></div>
+        </li>
+        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+            <div data-id="us-lb-99pc-lat" data-view="Latency" data-tier="us load balancer latency"></div>
+        </li>
+      </ul>
+</div>
