@@ -294,6 +294,8 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('user-profile-us', 'user-profile-svc-at-lb-us-east-1.memb.ft.com', '/tests/get-profile-critical', true)
   performCheckAndSendEventToWidgets('customer-sso', 'customer-sso-at-eu-prod.herokuapp.com', '/tests', true)
   performCheckAndSendEventToWidgets('customer-sso-us', 'customer-sso-at-us-prod.herokuapp.com', '/tests', true)
+  performCheckAndSendEventToWidgets('user-id-svc-tests-eu', 'user-id-svc-at-eu-prod.herokuapp.com', '/tests', true)
+  performCheckAndSendEventToWidgets('user-id-svc-tests-us', 'user-id-svc-at-us-prod.herokuapp.com', '/tests', true)
   getStatusFromHealthCheck('user-profile-eu', 'http://healthcheck.ft.com', '/service/7b02faa0e45544c26c7f4dddcdafa251', s3oCredentials)
   getStatusFromHealthCheck('user-profile-us', 'http://healthcheck.ft.com', '/service/41ddaf5f7110db4f05cf1104d21c0d78', s3oCredentials)
   getStatusFromHealthCheck('sign-up-app-us', 'http://healthcheck.ft.com', '/service/f3b5a9c8792abcb2ec22000768719f4f', s3oCredentials)
@@ -327,6 +329,10 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   getHealth('customer-sso-app2-eu', '10.170.45.213', '/__health', 8443, true)
   getHealth('customer-sso-app1-us', '10.171.36.204', '/__health', 8443, true)
   getHealth('customer-sso-app2-us', '10.171.46.111', '/__health', 8443, true)
+  getHealth('user-id-svc-app1-eu', '10.170.38.30', '/__health', 8443, true)
+  getHealth('user-id-svc-app2-eu', '10.170.45.248', '/__health', 8443, true)
+  getHealth('user-id-svc-app1-us', '10.171.39.123', '/__health', 8443, true)
+  getHealth('user-id-svc-app2-us', '10.171.46.94', '/__health', 8443, true)
   getStatusFromNagios('ftmon65099-law1c-eu-p', 'http://ftmon65099-law1c-eu-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon65088-lae1c-us-p', 'http://ftmon65088-lae1c-us-p', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('ftmon05279-lviw-uk-p', 'http://ftmon05279-lviw-uk-p', '/nagios/cgi-bin/status.cgi')
@@ -335,6 +341,8 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   getStatusFromNagios('ftmon65088-lae1c-us-p-nagios', 'http://ftmon65088-lae1c-us-p.osb.ft.com', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('10.171.46.231-nagios', 'http://10.171.46.231', '/nagios/cgi-bin/status.cgi')
   getStatusFromNagios('10.170.55.95-nagios', 'http://10.170.55.95', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('10.171.44.166-nagios', 'http://10.171.44.166', '/nagios/cgi-bin/status.cgi')
+  getStatusFromNagios('10.170.55.156-nagios', 'http://10.170.55.156', '/nagios/cgi-bin/status.cgi')
 end
 
 SCHEDULER.every '15s', first_in: 0 do |job|
