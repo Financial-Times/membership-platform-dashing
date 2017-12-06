@@ -102,7 +102,7 @@ SCHEDULER.every '30s', first_in: 0 do |job|
   performCheckAndSendEventToWidgets('change-credentials', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/change-credentials-critical', false)
   performCheckAndSendEventToWidgets('reset-password', 'ft-memb-user-cred-svc-at-elb-eu-946129326.eu-west-1.elb.amazonaws.com', '/tests/reset-password-critical', false)
   performCheckAndSendEventToWidgets('validate-session', 'ft-memb-session-api-at-elb-p-301208839.eu-west-1.elb.amazonaws.com', '/tests/critical-validate', false)
-  performCheckAndSendEventToWidgets('get-user-products', 'usr-product-svc-at-eu-prod.herokuapp.com', '/tests/get-products-critical', false)
+  performCheckAndSendEventToWidgets('get-user-products', 'usr-product-svc-at-eu-prod.memb.ft.com', '/tests/get-products-critical', true)
   performCheckAndSendEventToWidgets('authorise-content', 'ft-memb-access-service-at-elb-eu-287296531.eu-west-1.elb.amazonaws.com', '/tests/authorise-content-critical', false)
   performCheckAndSendEventToWidgets('retrieve-user-profile', 'user-profile-svc-at-lb-eu-west-1.memb.ft.com', '/tests/get-profile-critical', true)
   performCheckAndSendEventToWidgets('customer-sso', 'customer-sso-at-eu-prod.herokuapp.com', '/tests', true)
